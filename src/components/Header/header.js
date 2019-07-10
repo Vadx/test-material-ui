@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Logo } from '../../common/Logo'
+import { UserMenu } from './UserMenu'
 import {Button, Grid} from '@material-ui/core'
-import Menu from '@material-ui/icons/Menu'
 
 const HeaderWrap = styled.header`
   position: relative;
@@ -21,13 +21,14 @@ const ButtonInvite = styled(Button)`
 `
 
 const ButtonMenu = styled(Button)`
-  padding: 20px 12px;
-  color: #6f7e8b;
-`
-
-const DropDownWrap = styled(Button)`
-  color: #6f7e8b;
-  margin-left: 5px;
+  padding: 18px 12px;
+  color: ${props => props.active ? ' #fff' : '#6f7e8b'};
+  background: ${props => props.active ? ' #434f61' : 'none'};
+  border-radius: 0;
+  font-size: 13px;
+  &:hover {
+    background: ${props => props.active ? ' #434f61' : 'none'};
+  }
 `
 
 export class Header extends Component {
@@ -44,7 +45,7 @@ export class Header extends Component {
           <Grid container alignItems="center" xs={8}>
             <Logo />
             <Nav>
-              <ButtonMenu selected={true}>Campaigns</ButtonMenu>
+              <ButtonMenu active>Campaigns</ButtonMenu>
               <ButtonMenu>Messages</ButtonMenu>
               <ButtonMenu>Discover</ButtonMenu>
               <ButtonMenu>Insights</ButtonMenu>
@@ -52,7 +53,7 @@ export class Header extends Component {
           </Grid>
           <Grid container alignItems="center" justify="flex-end" xs={4}>
             <ButtonInvite variant="contained" color="primary">Invite Creators</ButtonInvite>
-            <DropDownWrap size="small"><Menu/></DropDownWrap>
+            <UserMenu />
           </Grid>
         </Grid>
       </HeaderWrap>

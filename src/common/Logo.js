@@ -8,5 +8,5 @@ export const Logo = styled.span`
   display: inline-block;
   width: 140px;
   height: 32px;
-  margin-right: 10px;
+  margin-right: 15px;
 `

@@ -5,18 +5,22 @@ import {Tabs, Tab} from '@material-ui/core'
 
 const Wrap = styled.div`
   margin-bottom: 25px;
+  position: relative;
+  margin: 0 20px 25px;
 `
 
 const TabWrap = styled(Tabs)`
   position: relative;
-  &:after {
-    content: '';
-    background: #ccc;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    position: absolute;
-  }
+`
+
+const Line = styled.div`
+  background: #ccc;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  z-index: -1;
+  left: 0;
 `
 
 const TabItem = styled(Tab)`
@@ -25,10 +29,11 @@ const TabItem = styled(Tab)`
   position: relative;
   padding-left: 0;
   padding-right: 0;
+  min-width: 120px;
 `
 
 export function CompaignsTab () {
-  const [value, setValue] = React.useState(2)
+  const [value, setValue] = React.useState(1)
 
   function handleChange(event, newValue) {
     setValue(newValue)
@@ -36,7 +41,7 @@ export function CompaignsTab () {
 
   return (
     <Wrap>
-      <TabWrap value={value} indicatorColor="secondary" textColor="primary" onChange={handleChange}>
+      <TabWrap value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
         <TabItem label="Proposals (0)" />  
         <TabItem label="In progress (1)" />
         <TabItem label="Live videos (0)" disabled />
@@ -45,7 +50,7 @@ export function CompaignsTab () {
         <TabItem label="Performance" />
         <TabItem label="Demographics" />
       </TabWrap>
-      <span>text</span>
+      <Line />
     </Wrap>
   )
 }
