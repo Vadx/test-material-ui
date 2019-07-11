@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/test-material-ui/static/css/main.beb7850a.chunk.css",
-    "main.js": "/test-material-ui/static/js/main.ab3dc917.chunk.js",
-    "main.js.map": "/test-material-ui/static/js/main.ab3dc917.chunk.js.map",
+    "main.js": "/test-material-ui/static/js/main.16d9e60d.chunk.js",
+    "main.js.map": "/test-material-ui/static/js/main.16d9e60d.chunk.js.map",
     "runtime~main.js": "/test-material-ui/static/js/runtime~main.742a88d6.js",
     "runtime~main.js.map": "/test-material-ui/static/js/runtime~main.742a88d6.js.map",
-    "static/js/2.b2ee52f7.chunk.js": "/test-material-ui/static/js/2.b2ee52f7.chunk.js",
-    "static/js/2.b2ee52f7.chunk.js.map": "/test-material-ui/static/js/2.b2ee52f7.chunk.js.map",
+    "static/js/2.e9d375f0.chunk.js": "/test-material-ui/static/js/2.e9d375f0.chunk.js",
+    "static/js/2.e9d375f0.chunk.js.map": "/test-material-ui/static/js/2.e9d375f0.chunk.js.map",
     "index.html": "/test-material-ui/index.html",
-    "precache-manifest.6a97a4d60afe94590d993a0834cc35b1.js": "/test-material-ui/precache-manifest.6a97a4d60afe94590d993a0834cc35b1.js",
+    "precache-manifest.18aeb7d8bf377f587a74da2ef8942ab5.js": "/test-material-ui/precache-manifest.18aeb7d8bf377f587a74da2ef8942ab5.js",
     "service-worker.js": "/test-material-ui/service-worker.js",
     "static/css/main.beb7850a.chunk.css.map": "/test-material-ui/static/css/main.beb7850a.chunk.css.map",
     "static/media/logo.svg": "/test-material-ui/static/media/logo.29e22bf1.svg"
