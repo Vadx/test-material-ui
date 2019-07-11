@@ -28,7 +28,7 @@ export function ProgressBar() {
       <Box display='flex' justifyContent='space-between' alignItems='center'>
         <Box flexGrow={1}>
           <ProgressLine>
-            <Box width='75%' p={0} my={0} style={{ color: '#3baaa6', height: '10px' }}>.</Box> 
+            <Box width='33%' p={0} my={0} style={{ background: '#3baaa6', height: '10px' }}>.</Box> 
           </ProgressLine>
         </Box>
         <Box>

@@ -2,17 +2,13 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Logo } from '../../common/Logo'
 import { UserMenu } from './UserMenu'
-import {Button, Grid} from '@material-ui/core'
+import {Button, Grid, Box} from '@material-ui/core'
 
 const HeaderWrap = styled.header`
   position: relative;
   background: #303845;
   color: #fff;
   padding-left: 20px;
-`
-
-const Nav = styled.nav`
-  display: inline-flex;
 `
 
 const ButtonInvite = styled(Button)`
@@ -44,12 +40,12 @@ export class Header extends Component {
           alignContent="space-between">
           <Grid container alignItems="center" xs={8}>
             <Logo />
-            <Nav>
+            <Box display='inline-flex'>
               <ButtonMenu active>Campaigns</ButtonMenu>
               <ButtonMenu>Messages</ButtonMenu>
               <ButtonMenu>Discover</ButtonMenu>
               <ButtonMenu>Insights</ButtonMenu>
-            </Nav>
+            </Box>
           </Grid>
           <Grid container alignItems="center" justify="flex-end" xs={4}>
             <ButtonInvite variant="contained" color="primary">Invite Creators</ButtonInvite>

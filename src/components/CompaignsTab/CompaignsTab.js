@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Tabs, Tab} from '@material-ui/core'
-// import Menu from '@material-ui/icons/Menu'
+import { ViewModule, ViewStream } from '@material-ui/icons'
 
 const Wrap = styled.div`
   margin-bottom: 25px;
@@ -32,6 +32,12 @@ const TabItem = styled(Tab)`
   min-width: 120px;
 `
 
+const SwichView = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+`
+
 export function CompaignsTab () {
   const [value, setValue] = React.useState(1)
 
@@ -51,6 +57,10 @@ export function CompaignsTab () {
         <TabItem label="Demographics" />
       </TabWrap>
       <Line />
+      <SwichView>
+        <ViewModule /> 
+        <ViewStream />
+      </SwichView>
     </Wrap>
   )
 }

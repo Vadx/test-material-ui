@@ -33,8 +33,7 @@ function App() {
         </div>
       </StylesProvider>
     </ThemeProvider>
-    
-  );
+  )
 }
 
 export default App
