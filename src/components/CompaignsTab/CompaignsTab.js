@@ -1,7 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {Tabs, Tab} from '@material-ui/core'
+import {Tabs, Tab, Box} from '@material-ui/core'
 import { ViewModule, ViewStream } from '@material-ui/icons'
+
+import { CampaignInProgress } from './containers/CampaignInProgress'
+import { Demographics } from './containers/Demographics'
+import { LiveInstagramPosts } from './containers/LiveInstagramPosts'
+import { LiveVideos } from './containers/LiveVideos'
+import { Performance } from './containers/Performance'
+import { Proposals } from './containers/Proposals'
 
 const Wrap = styled.div`
   margin-bottom: 25px;
@@ -38,6 +46,18 @@ const SwichView = styled.div`
   bottom: 4px;
 `
 
+function TabContainer(props) {
+  return (
+    <Box component="div">
+      {props.children}
+    </Box>
+  )
+}
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
 export function CompaignsTab () {
   const [value, setValue] = React.useState(1)
 
@@ -47,20 +67,27 @@ export function CompaignsTab () {
 
   return (
     <Wrap>
-      <TabWrap value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
-        <TabItem label="Proposals (0)" />  
-        <TabItem label="In progress (1)" />
-        <TabItem label="Live videos (0)" disabled />
-        <TabItem label="Live instagram posts (0)" disabled />
-        <TabItem label="Performance" />
-        <TabItem label="Performance" />
-        <TabItem label="Demographics" />
-      </TabWrap>
-      <Line />
-      <SwichView>
-        <ViewModule /> 
-        <ViewStream />
-      </SwichView>
+      <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
+        <TabWrap value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
+          <TabItem label="Proposals (0)" />  
+          <TabItem label="In progress (1)" />
+          <TabItem label="Live videos (0)" disabled />
+          <TabItem label="Live instagram posts (0)" disabled />
+          <TabItem label="Performance" />
+          <TabItem label="Demographics" />
+        </TabWrap>
+        <Line />
+        <SwichView>
+          <ViewModule /> 
+          <ViewStream />
+        </SwichView>
+      </Box>
+      {value === 0 && <TabContainer><Proposals /></TabContainer>}
+      {value === 1 && <TabContainer><CampaignInProgress /></TabContainer>}
+      {value === 2 && <TabContainer><LiveVideos /></TabContainer>}
+      {value === 3 && <TabContainer><LiveInstagramPosts /></TabContainer>}
+      {value === 4 && <TabContainer><Performance/></TabContainer>}
+      {value === 5 && <TabContainer><Demographics /></TabContainer>}
     </Wrap>
   )
 }

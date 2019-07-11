@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Logo } from '../../common/Logo'
 import { UserMenu } from './UserMenu'
-import {Button, Grid, Box} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import {Button, Box, Typography, Tooltip} from '@material-ui/core'
 
 const HeaderWrap = styled.header`
   position: relative;
@@ -27,32 +28,50 @@ const ButtonMenu = styled(Button)`
   }
 `
 
-export class Header extends Component {
+const useStyles = makeStyles({
+  styledTitle: {
+    color: '#6f7e8b',
+  },
+  boxBalance: {
+    cursor: 'pointer'
+  }
+})
 
-  render () {
+export function Header() {
+    const classes = useStyles()
     return (
       <HeaderWrap>
-        <Grid 
-          container 
+        <Box
+          display="flex"
           justify="center" 
-          spacing={0}
           alignItems="center"
-          alignContent="space-between">
-          <Grid container alignItems="center" xs={8}>
+          justifyContent="space-between">
+          <Box display="flex" alignItems="center">
             <Logo />
             <Box display='inline-flex'>
-              <ButtonMenu active>Campaigns</ButtonMenu>
+              <ButtonMenu active='true'>Campaigns</ButtonMenu>
               <ButtonMenu>Messages</ButtonMenu>
               <ButtonMenu>Discover</ButtonMenu>
               <ButtonMenu>Insights</ButtonMenu>
             </Box>
-          </Grid>
-          <Grid container alignItems="center" justify="flex-end" xs={4}>
+          </Box>
+          <Box display="flex"  alignItems="center" justify="flex-end">
+            <Tooltip title="Credits are applied to any transactions first before charging your credit card" placement="bottom">
+              <Box 
+                display="flex" 
+                flexDirection="column" 
+                justifyContent="center"
+                alignItems="center"
+                mr={3}
+                className={classes.boxBalance}>
+                <Typography component="div" variant="caption" className={classes.styledTitle}>ACCOUNT BALANCE</Typography>
+                <Typography component="div" variant="caption">$1,960.00</Typography>
+              </Box>
+            </Tooltip>
             <ButtonInvite variant="contained" color="primary">Invite Creators</ButtonInvite>
             <UserMenu />
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </HeaderWrap>
     )
-  }
 }

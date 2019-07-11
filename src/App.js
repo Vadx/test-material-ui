@@ -6,7 +6,6 @@ import { StylesProvider } from '@material-ui/styles'
 import { Header } from './components/Header'
 import { TopStatusBar } from './components/TopStatusBar'
 import { CompaignsTab } from './components/CompaignsTab'
-import { CompaignsCard } from './components/CompaignsCard'
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -29,7 +28,6 @@ function App() {
           <Header />
           <TopStatusBar />
           <CompaignsTab />
-          <CompaignsCard />
         </div>
       </StylesProvider>
     </ThemeProvider>
