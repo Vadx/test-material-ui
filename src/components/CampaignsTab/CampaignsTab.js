@@ -58,7 +58,7 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function CompaignsTab () {
+export function CampaignsTab () {
   const [value, setValue] = React.useState(1)
 
   function handleChange(event, newValue) {
