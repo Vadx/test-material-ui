@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,UAAW,CACX,SAAS,CACT,QAAS,CACT,kBACF","file":"main.beb7850a.chunk.css","sourcesContent":["body {\n  width: 100%;\n  padding:0;\n  margin: 0; \n  background: #f2f4f5;\n}"]}
