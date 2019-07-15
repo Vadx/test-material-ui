@@ -5,18 +5,6 @@ import { UserMenu } from './UserMenu'
 import { makeStyles } from '@material-ui/core/styles'
 import {Button, Box, Typography, Tooltip} from '@material-ui/core'
 
-const HeaderWrap = styled.header`
-  position: relative;
-  background: #303845;
-  color: #fff;
-  padding-left: 20px;
-`
-
-const ButtonInvite = styled(Button)`
-  border-radius: 25px;
-  font-size: 11px;
-`
-
 const ButtonMenu = styled(Button)`
   padding: 18px 12px;
   color: ${props => props.active ? ' #fff' : '#6f7e8b'};
@@ -29,23 +17,33 @@ const ButtonMenu = styled(Button)`
 `
 
 const useStyles = makeStyles({
+  header: {
+    position: 'relative',
+    background: '#303845',
+    color: '#fff',
+    paddingLeft: 20
+  },
   styledTitle: {
     color: '#6f7e8b',
   },
   boxBalance: {
     cursor: 'pointer'
+  },
+  buttonInvite: {
+    borderRadius: '25px',
+    fontSize: '11px'
   }
 })
 
 export function Header() {
     const classes = useStyles()
     return (
-      <HeaderWrap>
         <Box
           display="flex"
           justify="center" 
           alignItems="center"
-          justifyContent="space-between">
+          justifyContent="space-between"
+          className={classes.header}>
           <Box display="flex" alignItems="center">
             <Logo />
             <Box display='inline-flex'>
@@ -68,10 +66,9 @@ export function Header() {
                 <Typography component="div" variant="caption">$1,960.00</Typography>
               </Box>
             </Tooltip>
-            <ButtonInvite variant="contained" color="primary">Invite Creators</ButtonInvite>
+            <Button className={classes.buttonInvite} variant="contained" color="primary">Invite Creators</Button>
             <UserMenu />
           </Box>
         </Box>
-      </HeaderWrap>
     )
 }

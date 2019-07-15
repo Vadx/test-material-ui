@@ -1,11 +1,14 @@
 import React from 'react'
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import { StylesProvider } from '@material-ui/styles'
 
-import { Header } from './components/Header'
-import { TopStatusBar } from './components/TopStatusBar'
-import { CampaignsTab } from './components/CampaignsTab'
+// import { Header } from './components/Header'
+// import { TopStatusBar } from './components/TopStatusBar'
+// import { CampaignsTab } from './components/CampaignsTab'
+import { Login } from './components/Login'
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -24,11 +27,10 @@ function App() {
   return (
     <ThemeProvider theme={outerTheme}>
       <StylesProvider injectFirst>
-        <div className="App">
-          <Header />
+          {/* <Header />
           <TopStatusBar />
-          <CampaignsTab />
-        </div>
+          <CampaignsTab /> */}
+          <Login />
       </StylesProvider>
     </ThemeProvider>
   )
