@@ -3,12 +3,14 @@ import React from 'react'
 
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import { StylesProvider } from '@material-ui/styles'
 
-// import { Header } from './components/Header'
-// import { TopStatusBar } from './components/TopStatusBar'
-// import { CampaignsTab } from './components/CampaignsTab'
-import { Login } from './components/Login'
+import { Header } from './modules/Header'
+import { TopStatusBar } from './modules/TopStatusBar'
+import { CampaignsTab } from './modules/CampaignsTab'
+
+// import { Login } from '../components/Login'
+// import { ForgotPassword } from '../components/ForgotPassword'
+// import { ChangePassword } from '../frontend/modules/ChangePassword'
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -26,12 +28,12 @@ const outerTheme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={outerTheme}>
-      <StylesProvider injectFirst>
-          {/* <Header />
-          <TopStatusBar />
-          <CampaignsTab /> */}
-          <Login />
-      </StylesProvider>
+      <Header />
+      <TopStatusBar />
+      <CampaignsTab />
+      {/* <Login /> */}
+      {/* <ForgotPassword /> */}
+      {/* <ChangePassword /> */}
     </ThemeProvider>
   )
 }

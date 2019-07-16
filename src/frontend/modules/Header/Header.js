@@ -1,20 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Logo } from '../../common/Logo'
 import { UserMenu } from './UserMenu'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
 import {Button, Box, Typography, Tooltip} from '@material-ui/core'
 
-const ButtonMenu = styled(Button)`
-  padding: 18px 12px;
-  color: ${props => props.active ? ' #fff' : '#6f7e8b'};
-  background: ${props => props.active ? ' #434f61' : 'none'};
-  border-radius: 0;
-  font-size: 13px;
-  &:hover {
-    background: ${props => props.active ? ' #434f61' : 'none'};
-  }
-`
+const ButtonMenu = withStyles(theme => ({
+  root: {
+    padding: '18px 12px',
+    borderRadius: 0,
+    fontSize: '13px',
+    color: props => props.active ? '#fff' : '#6f7e8b',
+    background: props => props.active ? '#434f61' : 'none',
+    '&:hover': {
+      background: props => props.active ? ' #434f61' : 'none',
+      color: '#fff',
+    },
+  },
+}))(Button)
 
 const useStyles = makeStyles({
   header: {
@@ -23,7 +25,7 @@ const useStyles = makeStyles({
     color: '#fff',
     paddingLeft: 20
   },
-  styledTitle: {
+  styleTitle: {
     color: '#6f7e8b',
   },
   boxBalance: {
@@ -62,7 +64,7 @@ export function Header() {
                 alignItems="center"
                 mr={3}
                 className={classes.boxBalance}>
-                <Typography component="div" variant="caption" className={classes.styledTitle}>ACCOUNT BALANCE</Typography>
+                <Typography component="div" variant="caption" className={classes.styleTitle}>ACCOUNT BALANCE</Typography>
                 <Typography component="div" variant="caption">$1,960.00</Typography>
               </Box>
             </Tooltip>

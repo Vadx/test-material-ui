@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles'
 import {Tabs, Tab, Box} from '@material-ui/core'
 
 import { Billing } from './containers/Billing'
@@ -11,30 +11,30 @@ import { Referrals } from './containers/Referrals'
 import { SlackIntegration } from './containers/SlackIntegration'
 import { TeamManagement } from './containers/TeamManagement'
 
-const Wrap = styled.div`
-  margin-bottom: 25px;
-  position: relative;
-  margin: 0 20px 25px;
-`
-
-const Line = styled.div`
-  background: #ccc;
-  height: 2px;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-  z-index: -1;
-  left: 0;
-`
-
-const TabItem = styled(Tab)`
-  font-size: 13px;
-  text-transform: none;
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-  min-width: 120px;
-`
+const useStyles = makeStyles(theme => ({
+  wrap: {
+    marginBottom: '25px',
+    position: 'relative',
+    margin: '0 20px 25px'
+  },
+  line: {
+    background: '#ccc',
+    height: '2px',
+    width: '100%',
+    position: 'absolute',
+    bottom: '0px',
+    zIndex: '-1',
+    left: '0'
+  },
+  tabItem: {
+    fontSize: '13px',
+    textTransform: 'none',
+    position: 'relative',
+    paddingLeft: '0',
+    paddingRight: '0',
+    minWidth: '120px'
+  }
+}))
 
 function TabContainer(props) {
   return (
@@ -50,24 +50,25 @@ TabContainer.propTypes = {
 
 export function CampaignsTab () {
   const [value, setValue] = React.useState(1)
+  const classes = useStyles()
 
   function handleChange(event, newValue) {
     setValue(newValue)
   }
 
   return (
-    <Wrap>
+    <Box className={classes.wrap}>
       <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange} style={{position: 'relative'}}>
-          <TabItem label="Company" />  
-          <TabItem label="Personal" />
-          <TabItem label="Payment" />
-          <TabItem label="Billing" />
-          <TabItem label="Slack integration" />
-          <TabItem label="Team" />
-          <TabItem label="Referrals" />
+          <Tab className={classes.tabItem} label="Company" />  
+          <Tab className={classes.tabItem} label="Personal" />
+          <Tab className={classes.tabItem} label="Payment" />
+          <Tab className={classes.tabItem} label="Billing" />
+          <Tab className={classes.tabItem} label="Slack integration" />
+          <Tab className={classes.tabItem} label="Team" />
+          <Tab className={classes.tabItem} label="Referrals" />
         </Tabs>
-        <Line />
+        <Box className={classes.line}></Box>
       </Box>
       {value === 0 && <TabContainer><CompanySettings /></TabContainer>}
       {value === 1 && <TabContainer><PersonalSettings /></TabContainer>}
@@ -76,6 +77,6 @@ export function CampaignsTab () {
       {value === 4 && <TabContainer><SlackIntegration/></TabContainer>}
       {value === 5 && <TabContainer><TeamManagement /></TabContainer>}
       {value === 6 && <TabContainer><Referrals /></TabContainer>}
-    </Wrap>
+    </Box>
   )
 }

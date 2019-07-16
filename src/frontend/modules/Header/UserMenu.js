@@ -1,14 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles'
 import {Button, Menu, MenuItem} from '@material-ui/core'
 import Dehaze from '@material-ui/icons/Dehaze'
 
-const ButtonMenu = styled(Button)`
-  color: #6f7e8b;
-`
+const useStyles = makeStyles(theme => ({
+  buttonMenu: {
+    color: '#6f7e8b'
+  }
+}))
 
 export function UserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const classes = useStyles()
 
   function handleClick(event) {
     setAnchorEl(event.currentTarget)
@@ -20,9 +23,9 @@ export function UserMenu() {
 
   return (
     <div>
-      <ButtonMenu aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        <Dehaze fontSize='small' />
-      </ButtonMenu>
+      <Button className={classes.battonMenu} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        <Dehaze fontSize='small' style={{color: '#6f7e8b'}} />
+      </Button>
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
