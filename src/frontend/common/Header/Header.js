@@ -1,5 +1,5 @@
 import React from 'react'
-import { Logo } from '../../common/Logo'
+import { Logo } from '../Logo'
 import { UserMenu } from './UserMenu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import {Button, Box, Typography, Tooltip} from '@material-ui/core'

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import {Tabs, Tab, Box} from '@material-ui/core'
+import {Tabs, Tab, Box, Typography} from '@material-ui/core'
 
 import { Billing } from './containers/Billing'
 import { CompanySettings } from './containers/CompanySettings'
@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
   wrap: {
     marginBottom: '25px',
     position: 'relative',
-    margin: '0 20px 25px'
+    margin: '0 20px 25px',
+    paddingTop: '50px'
   },
   line: {
     background: '#ccc',
@@ -48,7 +49,7 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function CampaignsTab () {
+export function AccountSettings () {
   const [value, setValue] = React.useState(1)
   const classes = useStyles()
 
@@ -58,6 +59,7 @@ export function CampaignsTab () {
 
   return (
     <Box className={classes.wrap}>
+      <Typography variant="h4" component="h2" style={{marginBottom: '20px'}}>Account settings</Typography>
       <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange} style={{position: 'relative'}}>
           <Tab className={classes.tabItem} label="Company" />  

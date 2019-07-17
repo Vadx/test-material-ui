@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export function SlackIntefration () {
+export function SlackIntegration () {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>

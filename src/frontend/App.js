@@ -1,14 +1,18 @@
 import React from 'react'
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+// import { BrowserRouter as Switch, Route, Router } from 'react-router-dom'
 
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 
-import { Header } from './modules/Header'
-import { TopStatusBar } from './modules/TopStatusBar'
-import { CampaignsTab } from './modules/CampaignsTab'
+// import { routes, renderRoutesWithSubRoutes } from './routes'
 
-// import { Login } from '../components/Login'
+import { Header } from './common/Header'
+// import { TopStatusBar } from './modules/TopStatusBar'
+// import { CampaignsTab } from './modules/CampaignsTab'
+// import { Messages } from './modules/Messages'
+import { AccountSettings } from './modules/AccountSettings'
+
+// import { Login } from '../../components/Login'
 // import { ForgotPassword } from '../components/ForgotPassword'
 // import { ChangePassword } from '../frontend/modules/ChangePassword'
 
@@ -29,11 +33,12 @@ function App() {
   return (
     <ThemeProvider theme={outerTheme}>
       <Header />
-      <TopStatusBar />
-      <CampaignsTab />
+      {/* <TopStatusBar /> */}
+      {/* <CampaignsTab /> */}
       {/* <Login /> */}
       {/* <ForgotPassword /> */}
       {/* <ChangePassword /> */}
+      <AccountSettings />
     </ThemeProvider>
   )
 }
