@@ -38,11 +38,12 @@ export function CompanySettings () {
   const [values, setValues] = React.useState({
     industry: '',
     proposals: '',
-  });
+  })
 
   const inputLabel = React.useRef(null)
   
-  const [labelWidth, setLabelWidth] = React.useState(0);
+  const [labelWidth, setLabelWidth] = React.useState(0)
+
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth)
   }, [])
@@ -113,7 +114,7 @@ export function CompanySettings () {
               input={<OutlinedInput labelWidth={labelWidth} name="proposuls" id="outlined-simple-proposuls" />}
             >
               <MenuItem value=""><em>None</em></MenuItem>
-              <MenuItem value={111}>Batch new proposals</MenuItem>
+              <MenuItem value={111}>Individual</MenuItem>
               <MenuItem value={222}>Daily Digest</MenuItem>
             </Select>
           </FormControl>
