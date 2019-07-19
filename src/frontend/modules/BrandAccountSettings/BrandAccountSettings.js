@@ -49,7 +49,7 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function AccountSettings () {
+export function BrandAccountSettings () {
   const [value, setValue] = React.useState(1)
   const classes = useStyles()
 

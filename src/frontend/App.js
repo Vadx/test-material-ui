@@ -10,7 +10,7 @@ import { Header } from './common/Header'
 // import { TopStatusBar } from './modules/TopStatusBar'
 // import { CampaignsTab } from './modules/CampaignsTab'
 // import { Messages } from './modules/Messages'
-import { AccountSettings } from './modules/AccountSettings'
+import { BrandAccountSettings } from './modules/BrandAccountSettings'
 
 // import { Login } from '../../components/Login'
 // import { ForgotPassword } from '../components/ForgotPassword'
@@ -38,7 +38,7 @@ function App() {
       {/* <Login /> */}
       {/* <ForgotPassword /> */}
       {/* <ChangePassword /> */}
-      <AccountSettings />
+      <BrandAccountSettings />
     </ThemeProvider>
   )
 }

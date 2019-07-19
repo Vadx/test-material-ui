@@ -51,8 +51,13 @@ const StyledTextField = withStyles(theme => ({
       backgroundColor: '#fff',
       borderRadius: 4,
     },
-    label: {
+    '& input': {
+      borderRadius: 4
+    },
+    '& .MuiInputLabel-root': {
       backgroundColor: '#fff',
+      paddingLeft: '5px',
+      paddingRight: '5px'
     }
   }
 }))(TextField)
