@@ -37,16 +37,14 @@ export function CompanySettings () {
 
   const [values, setValues] = React.useState({
     industry: '',
-    proposals: '',
-  })
+    proposals: ''
+  });
 
-  const inputLabel = React.useRef(null)
-  
-  const [labelWidth, setLabelWidth] = React.useState(0)
-
+  const inputLabel = React.useRef(null);
+  const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth)
-  }, [])
+    setLabelWidth(inputLabel.current.offsetWidth);
+  }, []);
 
   function handleChangeSelect(event) {
     setValues(oldValues => ({
@@ -54,6 +52,7 @@ export function CompanySettings () {
       [event.target.name]: event.target.value,
     }))
   }
+
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked })
   }
@@ -111,11 +110,12 @@ export function CompanySettings () {
             <Select
               value={values.proposals}
               onChange={handleChangeSelect}
+              name="proposals"
               input={<OutlinedInput labelWidth={labelWidth} name="proposuls" id="outlined-simple-proposuls" />}
             >
               <MenuItem value=""><em>None</em></MenuItem>
-              <MenuItem value={111}>Individual</MenuItem>
-              <MenuItem value={222}>Daily Digest</MenuItem>
+              <MenuItem value={12}>Individual</MenuItem>
+              <MenuItem value={13}>Daily Digest</MenuItem>
             </Select>
           </FormControl>
           <Typography variant="caption" component="p" color="textSecondary" style={{marginBottom: '20px'}}>Send email for new campaign proposals</Typography>

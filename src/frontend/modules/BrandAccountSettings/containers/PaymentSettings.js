@@ -34,21 +34,25 @@ const useStyles = makeStyles(theme => ({
 
 export function PaymentSettings () {
   const classes = useStyles()
-  const [cardExpires, setChange, expirationYear, country ] = React.useState('')
+  // const [cardExpires, setChange, expirationYear, country ] = React.useState('')
 
   const inputLabel = React.useRef(null)
   const [labelWidth, setLabelWidth] = React.useState(0)
   const [values, setValues] = React.useState({
-    industry: '',
-    proposals: '',
+    expires: '',
+    year: '',
+    country: ''
   })
+
   React.useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth)
-  }, [])
-  
+    setLabelWidth(inputLabel.current.offsetWidth);
+  }, []);
 
   function handleChange(event) {
-    setChange(event.target.value)
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
   }
   
   return (
@@ -106,7 +110,7 @@ export function PaymentSettings () {
               <FormControl variant="outlined" margin="dense" fullWidth>
                 <InputLabel ref={inputLabel} htmlFor="outlined-simple-expires">Card expires</InputLabel>
                 <Select
-                  value={values.proposals}
+                  value={values.expires}
                   onChange={handleChange}
                   input={<OutlinedInput labelWidth={labelWidth} name="expires" id="outlined-simple-expires" />}
                 >
@@ -131,7 +135,7 @@ export function PaymentSettings () {
               <FormControl variant="outlined" margin="dense" fullWidth>
                 <InputLabel ref={inputLabel} htmlFor="outlined-simple-year">Expiration year</InputLabel>
                 <Select
-                  value={values.proposals}
+                  value={values.year}
                   onChange={handleChange}
                   input={<OutlinedInput labelWidth={labelWidth} name="year" id="outlined-simple-year" />}
                 >
@@ -165,7 +169,7 @@ export function PaymentSettings () {
               <FormControl variant="outlined" margin="dense" fullWidth>
                 <InputLabel ref={inputLabel} htmlFor="outlined-simple-country">Country</InputLabel>
                 <Select
-                  value={values.proposals}
+                  value={values.country}
                   onChange={handleChange}
                   input={<OutlinedInput labelWidth={labelWidth} name="country" id="outlined-simple-country" />}
                 >
