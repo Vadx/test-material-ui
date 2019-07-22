@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {Paper, Typography, Grid, TextField, Box, Button, Link} from '@material-ui/core'
-import logo from '../../../assets/grapevine_slack.png'
+import logo from '../../../../assets/grapevine_slack.png'
 
 const useStyles = makeStyles(theme => ({
   root: {

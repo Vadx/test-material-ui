@@ -11,7 +11,8 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  OutlinedInput
+  OutlinedInput,
+  Link
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -46,13 +47,13 @@ export function PaymentSettings () {
 
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
+  }, [])
 
   function handleChange(event) {
     setValues(oldValues => ({
       ...oldValues,
       [event.target.name]: event.target.value,
-    }));
+    }))
   }
   
   return (
@@ -450,6 +451,7 @@ export function PaymentSettings () {
         </Paper>
       </Grid>
       <Grid item xs={4}>
+        <Typography variant="body2" color="textSecondary" style={{marginBottom: '10px'}}>Need to cancel? <Link>Click here</Link></Typography>
         <Box className={classes.paymentInfo}>
           <Typography component="p" style={{marginBottom: '20px'}}>IMPORTANT</Typography>
           <Typography component="h5" variant="h6" style={{marginBottom: '25px'}}>You must add a valid credit card.</Typography>

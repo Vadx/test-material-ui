@@ -38,13 +38,13 @@ export function CompanySettings () {
   const [values, setValues] = React.useState({
     industry: '',
     proposals: ''
-  });
+  })
 
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
+  }, [])
 
   function handleChangeSelect(event) {
     setValues(oldValues => ({

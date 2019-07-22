@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {Paper, Grid, Button, Box, TextField} from '@material-ui/core'
 import logo from '../../assets/logo-dark.png'
@@ -21,8 +22,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ChangePassword () {
+export function ChangePassword () {
   const classes = useStyles()
+  const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
+
   return (
     <Grid 
       container
@@ -64,7 +67,7 @@ export default function ChangePassword () {
         />
 
         <Box display="flex" flexDirection="column" alignItems="stretch" paddingTop="15px">
-          <Button size="large" variant="contained" color="primary">Change my password</Button>
+          <Button component={AdapterLink} to="/login" size="large" variant="contained" color="primary">Change my password</Button>
         </Box>
       </Paper>
     </Grid>

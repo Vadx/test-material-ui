@@ -1,6 +1,6 @@
 import React from 'react'
-import { ProgressBar } from '../../../common/ProgressBar'
-import { StatusList } from '../../../common/StatusList'
+import { ProgressBar } from '../../../../common/ProgressBar'
+import { StatusList } from '../../../../common/StatusList'
 import { Grid, Paper, Typography, Avatar, Button, Link, Box} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { deepOrange } from '@material-ui/core/colors'

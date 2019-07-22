@@ -1,20 +1,9 @@
 import React from 'react'
-// import { BrowserRouter as Switch, Route, Router } from 'react-router-dom'
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-
-// import { routes, renderRoutesWithSubRoutes } from './routes'
-
+import { routes, RouteWithSubRoutes } from './routes'
 import { Header } from './common/Header'
-// import { TopStatusBar } from './modules/TopStatusBar'
-// import { CampaignsTab } from './modules/CampaignsTab'
-// import { Messages } from './modules/Messages'
-import { BrandAccountSettings } from './modules/BrandAccountSettings'
-
-// import { Login } from '../../components/Login'
-// import { ForgotPassword } from '../components/ForgotPassword'
-// import { ChangePassword } from '../frontend/modules/ChangePassword'
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -31,15 +20,15 @@ const outerTheme = createMuiTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={outerTheme}>
-      <Header />
-      {/* <TopStatusBar /> */}
-      {/* <CampaignsTab /> */}
-      {/* <Login /> */}
-      {/* <ForgotPassword /> */}
-      {/* <ChangePassword /> */}
-      <BrandAccountSettings />
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={outerTheme}>
+        <Route path={['/brand', '/campaing', '/мessages']} component={Header} />
+
+        {routes.map((route, i) => (
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
+      </ThemeProvider>
+    </Router>
   )
 }
 

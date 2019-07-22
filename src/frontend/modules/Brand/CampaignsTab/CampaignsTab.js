@@ -10,6 +10,7 @@ import { LiveInstagramPosts } from './containers/LiveInstagramPosts'
 import { LiveVideos } from './containers/LiveVideos'
 import { Performance } from './containers/Performance'
 import { Proposals } from './containers/Proposals'
+import { TopStatusBar } from './containers/TopStatusBar'
 
 const useStyles = makeStyles(theme => ({
   wrap: {
@@ -65,8 +66,9 @@ export function CampaignsTab () {
   }
 
   return (
-    <Box className={classes.wrap}>
-      <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
+    <Box>
+      <TopStatusBar/>
+      <Box className={classes.wrap} component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs className={classes.tabs} value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
           <Tab className={classes.tabItem} label="Proposals (0)" />  
           <Tab className={classes.tabItem} label="In progress (1)" />

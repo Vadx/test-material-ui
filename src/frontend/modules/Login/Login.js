@@ -1,4 +1,6 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {Paper, Typography, Grid, Button, Box, TextField, Link} from '@material-ui/core'
 
@@ -30,6 +32,9 @@ const useStyles = makeStyles(theme => ({
 
 export function Login () {
   const classes = useStyles()
+  const AdapterButton = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />)
+  const AdapterLink = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />)
+
   return (
     <Grid 
       container
@@ -52,7 +57,7 @@ export function Login () {
         <Grid item>
           <Paper className={classes.paper}>
             <Typography variant="h6" component="h3" className={classes.title}>I'm a Brand</Typography>
-            <Box fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>You’re looking for influencers to promote your company. If you don't have an account yet, <Link href='#'>signup here</Link>.</Box>
+            <Box fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>You’re looking for influencers to promote your company. If you don't have an account yet, <Link to="/">signup here</Link>.</Box>
             <TextField
               id="outlined-email-input"
               label="Email"
@@ -72,11 +77,11 @@ export function Login () {
               margin="normal"
               variant="outlined"
             />
-            <Box textAlign="right">
-              <Link href="#" variant="caption">Forget password?</Link>
+            <Box fontFamily="fontFamily" fontSize={12} textAlign="right">
+              <Link component={AdapterLink} to="/forgot-password">Forget password?</Link>
             </Box>  
             <Box display="flex" flexDirection="column" alignItems="stretch" paddingTop="15px">
-              <Button size="large" variant="contained" color="primary">Sign in</Button>
+              <Button component={AdapterButton} to="/campaing" size="large" variant="contained" color="primary">Sign in</Button>
             </Box>
           </Paper>
         </Grid>

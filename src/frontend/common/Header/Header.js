@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import { Logo } from '../Logo'
-import { UserMenu } from './UserMenu'
+import { BrandUserMenu } from './BrandUserMenu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import {Button, Box, Typography, Tooltip} from '@material-ui/core'
 
@@ -39,6 +41,8 @@ const useStyles = makeStyles({
 
 export function Header() {
     const classes = useStyles()
+    const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
+
     return (
         <Box
           display="flex"
@@ -49,10 +53,10 @@ export function Header() {
           <Box display="flex" alignItems="center">
             <Logo />
             <Box display='inline-flex'>
-              <ButtonMenu active='true'>Campaigns</ButtonMenu>
-              <ButtonMenu>Messages</ButtonMenu>
-              <ButtonMenu>Discover</ButtonMenu>
-              <ButtonMenu>Insights</ButtonMenu>
+              <ButtonMenu component={AdapterButton} to="/campaing" active='true'>Campaigns</ButtonMenu>
+              <ButtonMenu component={AdapterButton} to="/мessages">Messages</ButtonMenu>
+              <ButtonMenu component={AdapterButton} to="/brand/discover">Discover</ButtonMenu>
+              <ButtonMenu component={AdapterButton} to="/brand/insights">Insights</ButtonMenu>
             </Box>
           </Box>
           <Box display="flex"  alignItems="center" justify="flex-end">
@@ -69,7 +73,7 @@ export function Header() {
               </Box>
             </Tooltip>
             <Button className={classes.buttonInvite} variant="contained" color="primary">Invite Creators</Button>
-            <UserMenu />
+            <BrandUserMenu />
           </Box>
         </Box>
     )

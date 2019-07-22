@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {Button, Menu, MenuItem} from '@material-ui/core'
 import Dehaze from '@material-ui/icons/Dehaze'
@@ -9,8 +10,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export function UserMenu() {
+export function BrandUserMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
   const classes = useStyles()
 
   function handleClick(event) {
@@ -33,9 +35,9 @@ export function UserMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Account settings</MenuItem>
-        <MenuItem onClick={handleClose}>Change password</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem component={AdapterLink} onClick={handleClose} to="/brand/account-settings">Account settings</MenuItem>
+        <MenuItem component={AdapterLink} onClick={handleClose} to="/change-password">Change password</MenuItem>
+        <MenuItem component={AdapterLink} onClick={handleClose} to="/login">Logout</MenuItem>
       </Menu>
     </div>
   )
