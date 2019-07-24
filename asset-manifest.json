@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/test-material-ui/static/css/main.616dcb79.chunk.css",
-    "main.js": "/test-material-ui/static/js/main.979a190d.chunk.js",
-    "main.js.map": "/test-material-ui/static/js/main.979a190d.chunk.js.map",
+    "main.js": "/test-material-ui/static/js/main.caeadff3.chunk.js",
+    "main.js.map": "/test-material-ui/static/js/main.caeadff3.chunk.js.map",
     "runtime~main.js": "/test-material-ui/static/js/runtime~main.742a88d6.js",
     "runtime~main.js.map": "/test-material-ui/static/js/runtime~main.742a88d6.js.map",
-    "static/js/2.a9773050.chunk.js": "/test-material-ui/static/js/2.a9773050.chunk.js",
-    "static/js/2.a9773050.chunk.js.map": "/test-material-ui/static/js/2.a9773050.chunk.js.map",
+    "static/js/2.e34e6c96.chunk.js": "/test-material-ui/static/js/2.e34e6c96.chunk.js",
+    "static/js/2.e34e6c96.chunk.js.map": "/test-material-ui/static/js/2.e34e6c96.chunk.js.map",
     "index.html": "/test-material-ui/index.html",
-    "precache-manifest.c85921f1c23149672f766049c71e8c89.js": "/test-material-ui/precache-manifest.c85921f1c23149672f766049c71e8c89.js",
+    "precache-manifest.ae404f1f7611b0f273c1bece919501dd.js": "/test-material-ui/precache-manifest.ae404f1f7611b0f273c1bece919501dd.js",
     "service-worker.js": "/test-material-ui/service-worker.js",
-    "static/css/main.616dcb79.chunk.css.map": "/test-material-ui/static/css/main.616dcb79.chunk.css.map"
+    "static/css/main.616dcb79.chunk.css.map": "/test-material-ui/static/css/main.616dcb79.chunk.css.map",
+    "static/media/grapevine_slack.png": "/test-material-ui/static/media/grapevine_slack.aa440262.png",
+    "static/media/logo.svg": "/test-material-ui/static/media/logo.29e22bf1.svg"
   }
 }
