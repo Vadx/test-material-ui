@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import {Tabs, Tab, Box, Typography} from '@material-ui/core'
 
-import { Billing } from './containers/Billing'
-import { CompanySettings } from './containers/CompanySettings'
+import { GeneralSettings } from './containers/GeneralSettings'
+import { ShopingAddress } from './containers/ShopingAddress'
 import { PaymentSettings } from './containers/PaymentSettings'
-import { PersonalSettings } from './containers/PersonalSettings'
-import { Referrals } from './containers/Referrals'
-import { SlackIntegration } from './containers/SlackIntegration'
-import { TeamManagement } from './containers/TeamManagement'
+import { Messages } from './containers/Messages'
+import { MyChannels } from './containers/MyChannels'
+import { Earnings } from './containers/Earnings'
+import { Managers } from './containers/Managers'
 
 const useStyles = makeStyles(theme => ({
   wrap: {
@@ -49,7 +49,7 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function BrandAccountSettings () {
+export function AccountSettings () {
   const [value, setValue] = React.useState(1)
   const classes = useStyles()
 
@@ -72,13 +72,13 @@ export function BrandAccountSettings () {
         </Tabs>
         <Box className={classes.line}></Box>
       </Box>
-      {value === 0 && <TabContainer><CompanySettings /></TabContainer>}
-      {value === 1 && <TabContainer><PersonalSettings /></TabContainer>}
+      {value === 0 && <TabContainer><GeneralSettings /></TabContainer>}
+      {value === 1 && <TabContainer><ShopingAddress /></TabContainer>}
       {value === 2 && <TabContainer><PaymentSettings /></TabContainer>}
-      {value === 3 && <TabContainer><Billing /></TabContainer>}
-      {value === 4 && <TabContainer><SlackIntegration/></TabContainer>}
-      {value === 5 && <TabContainer><TeamManagement /></TabContainer>}
-      {value === 6 && <TabContainer><Referrals /></TabContainer>}
+      {value === 3 && <TabContainer><Messages /></TabContainer>}
+      {value === 4 && <TabContainer><MyChannels/></TabContainer>}
+      {value === 5 && <TabContainer><Earnings /></TabContainer>}
+      {value === 6 && <TabContainer><TeamManagement /></TabContainer>}
     </Box>
   )
 }

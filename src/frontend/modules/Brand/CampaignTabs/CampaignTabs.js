@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 
 function TabContainer(props) {
   return (
-    <Box component="div">
+    <Box component="div" style={{padding: '0 20px'}}>
       {props.children}
     </Box>
   )
@@ -57,7 +57,7 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export function CampaignsTab () {
+export function CampaignTabs () {
   const [value, setValue] = React.useState(1)
   const classes = useStyles()
 

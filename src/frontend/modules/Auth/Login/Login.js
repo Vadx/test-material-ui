@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import { Link as RouterLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {Paper, Typography, Grid, Button, Box, TextField, Link} from '@material-ui/core'
@@ -81,7 +80,7 @@ export function Login () {
               <Link component={AdapterLink} to="/forgot-password">Forget password?</Link>
             </Box>  
             <Box display="flex" flexDirection="column" alignItems="stretch" paddingTop="15px">
-              <Button component={AdapterButton} to="/campaing" size="large" variant="contained" color="primary">Sign in</Button>
+              <Button component={AdapterButton} to="/brand/campaigns" size="large" variant="contained" color="primary">Sign in</Button>
             </Box>
           </Paper>
         </Grid>

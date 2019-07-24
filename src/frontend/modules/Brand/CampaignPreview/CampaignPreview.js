@@ -8,11 +8,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export function Discover () {
+export function CampaignPreview () {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>
-      <Typography variant="h5" component="h3">Discover !</Typography>
+      <Typography variant="h5" component="h3">CampaignPreview</Typography>
     </Paper>
   )
 }

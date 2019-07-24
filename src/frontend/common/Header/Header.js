@@ -39,6 +39,7 @@ const useStyles = makeStyles({
   }
 })
 
+
 export function Header() {
     const classes = useStyles()
     const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
@@ -53,7 +54,7 @@ export function Header() {
           <Box display="flex" alignItems="center">
             <Logo />
             <Box display='inline-flex'>
-              <ButtonMenu component={AdapterButton} to="/campaing" active='true'>Campaigns</ButtonMenu>
+              <ButtonMenu component={AdapterButton} to="/brand/campaigns" active='true'>Campaigns</ButtonMenu>
               <ButtonMenu component={AdapterButton} to="/мessages">Messages</ButtonMenu>
               <ButtonMenu component={AdapterButton} to="/brand/discover">Discover</ButtonMenu>
               <ButtonMenu component={AdapterButton} to="/brand/insights">Insights</ButtonMenu>
