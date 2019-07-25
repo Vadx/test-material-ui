@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 export function PersonalSettings () {
   const [state, setState] = React.useState({
     checkedB: true
-  });
+  })
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked })

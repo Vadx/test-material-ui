@@ -48,8 +48,8 @@ export function Login () {
               <Box fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>Signup or login with your social media accounts.</Box>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="stretch">
-              <Button variant="contained" size="large" className={classes.instagram}>Instagram</Button>
-              <Button variant="contained" size="large" className={classes.youtube}>Youtube</Button>
+              <Button component={AdapterButton} to="/creator/account-settings" variant="contained" size="large" className={classes.instagram}>Instagram</Button>
+              <Button component={AdapterButton} to="/creator/account-settings" variant="contained" size="large" className={classes.youtube}>Youtube</Button>
             </Box>
           </Paper>
         </Grid>

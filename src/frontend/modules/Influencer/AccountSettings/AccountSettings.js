@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import {Tabs, Tab, Box, Typography} from '@material-ui/core'
 
 import { GeneralSettings } from './containers/GeneralSettings'
-import { ShopingAddress } from './containers/ShopingAddress'
+import { ShippingAddress } from './containers/ShippingAddress'
 import { PaymentSettings } from './containers/PaymentSettings'
 import { Messages } from './containers/Messages'
 import { MyChannels } from './containers/MyChannels'
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     paddingLeft: '0',
     paddingRight: '0',
-    minWidth: '120px'
+    minWidth: '160px'
   }
 }))
 
@@ -62,23 +62,23 @@ export function AccountSettings () {
       <Typography variant="h4" component="h2" style={{marginBottom: '20px'}}>Account settings</Typography>
       <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange} style={{position: 'relative'}}>
-          <Tab className={classes.tabItem} label="Company" />  
-          <Tab className={classes.tabItem} label="Personal" />
-          <Tab className={classes.tabItem} label="Payment" />
-          <Tab className={classes.tabItem} label="Billing" />
-          <Tab className={classes.tabItem} label="Slack integration" />
-          <Tab className={classes.tabItem} label="Team" />
-          <Tab className={classes.tabItem} label="Referrals" />
+          <Tab className={classes.tabItem} label="General Settings" />  
+          <Tab className={classes.tabItem} label="Shipping Adress" />
+          <Tab className={classes.tabItem} label="Payment Settings" />
+          <Tab className={classes.tabItem} label="Messages and Emails" />
+          <Tab className={classes.tabItem} label="My Channels" />
+          <Tab className={classes.tabItem} label="Earnings" />
+          <Tab className={classes.tabItem} label="Managers" />
         </Tabs>
         <Box className={classes.line}></Box>
       </Box>
       {value === 0 && <TabContainer><GeneralSettings /></TabContainer>}
-      {value === 1 && <TabContainer><ShopingAddress /></TabContainer>}
+      {value === 1 && <TabContainer><ShippingAddress /></TabContainer>}
       {value === 2 && <TabContainer><PaymentSettings /></TabContainer>}
       {value === 3 && <TabContainer><Messages /></TabContainer>}
       {value === 4 && <TabContainer><MyChannels/></TabContainer>}
       {value === 5 && <TabContainer><Earnings /></TabContainer>}
-      {value === 6 && <TabContainer><TeamManagement /></TabContainer>}
+      {value === 6 && <TabContainer><Managers /></TabContainer>}
     </Box>
   )
 }

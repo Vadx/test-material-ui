@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={outerTheme}>
-        <Route path={['/brand', '/campaing', '/мessages']} component={Header} />
+        <Route path={['/brand', '/campaing', '/мessages', '/creator']} component={Header} />
 
         {routes.map((route, i) => (
           <RouteWithSubRoutes key={i} {...route} />

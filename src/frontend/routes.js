@@ -1,17 +1,20 @@
+import React from 'react'
+import { Route } from 'react-router-dom'
+
+// Brand
 import { CampaignTabs } from './modules/Brand/CampaignTabs'
 import { Messages } from './modules/Messages'
-
 import { AccountSettings } from './modules/Brand/AccountSettings'
 import { Discover } from './modules/Brand/Discover'
 import { Insights } from './modules/Brand/Insights'
 import { CampaignsList } from './modules/Brand/CampaignsList'
 
+// Influencer
+import { AccountSettings as AccountInfluencerSettings  } from './modules/Influencer/AccountSettings'
+
 import { Login } from './modules/Auth/Login'
 import { ForgotPassword } from './modules/Auth/ForgotPassword'
 import { ChangePassword } from './modules/Auth/ChangePassword'
-
-import React from 'react'
-import { Route } from 'react-router-dom'
 
 // route config
 export const routes = [
@@ -72,7 +75,11 @@ export const routes = [
   {
     path: "/brand/insights",
     component: Insights
-  }
+  },
+  {
+    path: "/creator/account-settings",
+    component: AccountInfluencerSettings
+  },
 ]
 
 export function RouteWithSubRoutes(route) {

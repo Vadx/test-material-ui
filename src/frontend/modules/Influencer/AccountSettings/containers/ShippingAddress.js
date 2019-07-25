@@ -5,42 +5,30 @@ import {
   Typography, 
   Grid, 
   Button, 
-  TextField, 
-  Box, 
+  TextField,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   OutlinedInput,
-  Link
+  FormControlLabel,
+  Checkbox
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-  },
-  title: {
-    paddingBottom: '10px',
-    marginBottom: '20px',
-    borderBottom: '1px solid #eee'
-  },
-  paymentInfo: {
-    background: '#3a598c',
-    color: '#fff',
-    padding: '3em',
-    textAlign: 'center',
-    borderBottom: '6px solid #5377b3'
   }
 }))
 
-export function PaymentSettings () {
+
+export function ShippingAddress () {
   const classes = useStyles()
 
   const inputLabel = React.useRef(null)
   const [labelWidth, setLabelWidth] = React.useState(0)
   const [values, setValues] = React.useState({
-    expires: '',
-    year: '',
+    state: '',
     country: ''
   })
 
@@ -54,118 +42,53 @@ export function PaymentSettings () {
       [event.target.name]: event.target.value,
     }))
   }
+
+  const [state, setState] = React.useState({
+    checkedB: true
+  })
+
+  const handleChangeCheckbox = name => event => {
+    setState({ ...state, [name]: event.target.checked })
+  }
   
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={8}>
-        <Paper className={classes.root}>
-          <Typography className={classes.title} variant="h5" component="h3">Payment settings</Typography>
+    <Paper className={classes.root}>
           <Grid container spacing={3}>
-            <Grid item xs={4}>
+            <Grid item xs={9}>
               <TextField
-                id="outlined-name-input"
-                label="First name"
+                id="outlined-street-input"
+                label="Street"
                 name="name"
-                autoComplete="First name"
+                autoComplete="Street"
                 margin="dense"
                 variant="outlined"
                 fullWidth
               />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={3}>
               <TextField
-                id="outlined-last-input"
-                label="Last name"
+                id="outlined-apartment-input"
+                label="Apartment "
                 name="last"
-                autoComplete="Last name"
+                autoComplete="Apartment"
                 margin="dense"
                 variant="outlined"
                 fullWidth
               />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={3}>
               <TextField
-                id="outlined-card-input"
-                label="Card number"
+                id="outlined-city-input"
+                label="City"
                 name="card"
-                autoComplete="Card number"
+                autoComplete="City"
                 margin="dense"
                 variant="outlined"
                 fullWidth
               />
             </Grid>
+            
             <Grid item xs={3}>
-              <TextField
-                id="outlined-cvv-input"
-                label="CVV"
-                name="cvv"
-                autoComplete="CVV"
-                margin="dense"
-                variant="outlined"
-                fullWidth
-              />
-            </Grid>
-
-            <Grid item xs={9}>
-              <FormControl variant="outlined" margin="dense" fullWidth>
-                <InputLabel ref={inputLabel} htmlFor="outlined-simple-expires">Card expires</InputLabel>
-                <Select
-                  value={values.expires}
-                  onChange={handleChange}
-                  input={<OutlinedInput labelWidth={labelWidth} name="expires" id="outlined-simple-expires" />}
-                >
-                  <MenuItem value=""><em>None</em></MenuItem>
-                  <MenuItem value={1}>1 - January</MenuItem>
-                  <MenuItem value={2}>2 - February</MenuItem>
-                  <MenuItem value={3}>3 - March</MenuItem>
-                  <MenuItem value={4}>4 - April</MenuItem>
-                  <MenuItem value={5}>5 - May</MenuItem>
-                  <MenuItem value={6}>6 - June</MenuItem>
-                  <MenuItem value={7}>7 - July</MenuItem>
-                  <MenuItem value={8}>8 - August</MenuItem>
-                  <MenuItem value={9}>9 - September</MenuItem>
-                  <MenuItem value={10}>10 - October</MenuItem>
-                  <MenuItem value={11}>11 - November</MenuItem>
-                  <MenuItem value={12}>12 - December</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-
-            <Grid item xs={3}>
-              <FormControl variant="outlined" margin="dense" fullWidth>
-                <InputLabel ref={inputLabel} htmlFor="outlined-simple-year">Expiration year</InputLabel>
-                <Select
-                  value={values.year}
-                  onChange={handleChange}
-                  input={<OutlinedInput labelWidth={labelWidth} name="year" id="outlined-simple-year" />}
-                >
-                  <MenuItem value=""><em>None</em></MenuItem>
-                  <MenuItem value={2019}>2019</MenuItem>
-                  <MenuItem value={2020}>2020</MenuItem>
-                  <MenuItem value={2021}>2021</MenuItem>
-                  <MenuItem value={2022}>2022</MenuItem>
-                  <MenuItem value={2023}>2023</MenuItem>
-                  <MenuItem value={2024}>2024</MenuItem>
-                  <MenuItem value={2025}>2025</MenuItem>
-                  <MenuItem value={2026}>2026</MenuItem>
-                  <MenuItem value={2027}>2027</MenuItem>
-                  <MenuItem value={2028}>2028</MenuItem>
-                  <MenuItem value={2029}>2029</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                id="outlined-name-input"
-                label="Billing zip"
-                name="zip"
-                autoComplete="Billing zip"
-                margin="dense"
-                variant="outlined"
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={9}>
               <FormControl variant="outlined" margin="dense" fullWidth>
                 <InputLabel ref={inputLabel} htmlFor="outlined-simple-country">Country</InputLabel>
                 <Select
@@ -443,20 +366,105 @@ export function PaymentSettings () {
                 </Select>
               </FormControl>
             </Grid>
+            <Grid item xs={3}>
+              <FormControl variant="outlined" margin="dense" fullWidth>
+                <InputLabel ref={inputLabel} htmlFor="outlined-simple-state">State</InputLabel>
+                <Select
+                  value={values.state}
+                  onChange={handleChange}
+                  input={<OutlinedInput labelWidth={labelWidth} name="state" id="outlined-simple-state" />}
+                >
+                  <MenuItem value=""><em>None</em></MenuItem>
+                  <MenuItem value="US-AL">Alabama</MenuItem>
+                  <MenuItem value="US-AK">Alaska</MenuItem>
+                  <MenuItem value="US-AZ">Arizona</MenuItem>
+                  <MenuItem value="US-AR">Arkansas</MenuItem>
+                  <MenuItem value="US-CA">California</MenuItem>
+                  <MenuItem value="US-CO">Colorado</MenuItem>
+                  <MenuItem value="US-CT">Connecticut</MenuItem>
+                  <MenuItem value="US-DE">Delaware</MenuItem>
+                  <MenuItem value="US-FL">Florida</MenuItem>
+                  <MenuItem value="US-GA">Georgia</MenuItem>
+                  <MenuItem value="US-HI">Hawaii</MenuItem>
+                  <MenuItem value="US-ID">Idaho</MenuItem>
+                  <MenuItem value="US-IL">Illinois</MenuItem>
+                  <MenuItem value="US-IN">Indiana</MenuItem>
+                  <MenuItem value="US-IA">Iowa</MenuItem>
+                  <MenuItem value="US-KS">Kansas</MenuItem>
+                  <MenuItem value="US-KY">Kentucky</MenuItem>
+                  <MenuItem value="US-LA">Louisiana</MenuItem>
+                  <MenuItem value="US-ME">Maine</MenuItem>
+                  <MenuItem value="US-MD">Maryland</MenuItem>
+                  <MenuItem value="US-MA">Massachusetts</MenuItem>
+                  <MenuItem value="US-MI">Michigan</MenuItem>
+                  <MenuItem value="US-MN">Minnesota</MenuItem>
+                  <MenuItem value="US-MS">Mississippi</MenuItem>
+                  <MenuItem value="US-MO">Missouri</MenuItem>
+                  <MenuItem value="US-MT">Montana</MenuItem>
+                  <MenuItem value="US-NE">Nebraska</MenuItem>
+                  <MenuItem value="US-NV">Nevada</MenuItem>
+                  <MenuItem value="US-NH">New Hampshire</MenuItem>
+                  <MenuItem value="US-NJ">New Jersey</MenuItem>
+                  <MenuItem value="US-NM">New Mexico</MenuItem>
+                  <MenuItem value="US-NY">New York</MenuItem>
+                  <MenuItem value="US-NC">North Carolina</MenuItem>
+                  <MenuItem value="US-ND">North Dakota</MenuItem>
+                  <MenuItem value="US-OH">Ohio</MenuItem>
+                  <MenuItem value="US-OK">Oklahoma</MenuItem>
+                  <MenuItem value="US-OR">Oregon</MenuItem>
+                  <MenuItem value="US-PA">Pennsylvania</MenuItem>
+                  <MenuItem value="US-RI">Rhode Island</MenuItem>
+                  <MenuItem value="US-SC">South Carolina</MenuItem>
+                  <MenuItem value="US-SD">South Dakota</MenuItem>
+                  <MenuItem value="US-TN">Tennessee</MenuItem>
+                  <MenuItem value="US-TX">Texas</MenuItem>
+                  <MenuItem value="US-UT">Utah</MenuItem>
+                  <MenuItem value="US-VT">Vermont</MenuItem>
+                  <MenuItem value="US-VA">Virginia</MenuItem>
+                  <MenuItem value="US-WA">Washington</MenuItem>
+                  <MenuItem value="US-WV">West Virginia</MenuItem>
+                  <MenuItem value="US-WI">Wisconsin</MenuItem>
+                  <MenuItem value="US-WY">Wyoming</MenuItem>
+                  <MenuItem value="US-DC">District of Columbia</MenuItem>
+                  <MenuItem value="US-AS">American Samoa</MenuItem>
+                  <MenuItem value="US-GU">Guam</MenuItem>
+                  <MenuItem value="US-MP">Northern Mariana Islands</MenuItem>
+                  <MenuItem value="US-PR">Puerto Rico</MenuItem>
+                  <MenuItem value="US-UM">United States Minor Outlying Islands</MenuItem>
+                  <MenuItem value="US-VI">Virgin Islands</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                id="outlined-zip-input"
+                label="Zip code"
+                name="zip"
+                autoComplete="Zip"
+                margin="dense"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
             <Grid item xs={12}>
-              <Button fullWidth variant="contained" color="primary">Submit</Button>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.checkedB}
+                    onChange={handleChangeCheckbox('checkedB')}
+                    value="checkedB"
+                    color="primary"
+                  />
+                }
+                label="Hide City/State on profile"
+              />
+              <Typography variant="caption" component="p" color="textSecondary" style={{marginBottom: '5px'}}>Selecting this option will hide your city and state from your public profile.</Typography> 
+              <Typography variant="caption" component="p" color="textSecondary" style={{marginBottom: '5px'}}>Only brands you are actively working with will have access to your shipping address to send you products. </Typography>
+            </Grid>
+            <Grid item xs={12} style={{textAlign: 'right'}}>
+              <Button variant="contained" color="primary">Update Shipping Information</Button>
             </Grid>
           </Grid>
         </Paper>
-      </Grid>
-      <Grid item xs={4}>
-        <Typography variant="body2" color="textSecondary" style={{marginBottom: '10px'}}>Need to cancel? <Link>Click here</Link></Typography>
-        <Box className={classes.paymentInfo}>
-          <Typography component="p" style={{marginBottom: '20px'}}>IMPORTANT</Typography>
-          <Typography component="h5" variant="h6" style={{marginBottom: '25px'}}>You must add a valid credit card.</Typography>
-          <Typography component="p" variant="body2">This will verify your account and enable you to create Grapevine campaigns. Your card will be charged when you confirm and book creators.</Typography>
-        </Box>
-      </Grid>
-    </Grid>
   )
 }
