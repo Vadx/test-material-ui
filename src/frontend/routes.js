@@ -11,7 +11,12 @@ import { CampaignsList } from './modules/Brand/CampaignsList'
 
 // Influencer
 import { AccountSettings as AccountInfluencerSettings  } from './modules/Influencer/AccountSettings'
+import { Calendar } from './modules/Influencer/Calendar'
+import { Campaigns } from './modules/Influencer/Campaigns'
+import { Marketplace } from './modules/Influencer/Marketplace'
+import { Profile } from './modules/Influencer/Profile'
 
+//Auth
 import { Login } from './modules/Auth/Login'
 import { ForgotPassword } from './modules/Auth/ForgotPassword'
 import { ChangePassword } from './modules/Auth/ChangePassword'
@@ -31,7 +36,7 @@ export const routes = [
     component: ChangePassword
   },
   {
-    path: "/мessages",
+    path: "/brand/мessages",
     component: Messages
   },
   // {
@@ -79,6 +84,26 @@ export const routes = [
   {
     path: "/creator/account-settings",
     component: AccountInfluencerSettings
+  },
+  {
+    path: "/creator/calendar",
+    component: Calendar
+  },
+  {
+    path: "/creator/campaigns",
+    component: Campaigns
+  },
+  {
+    path: "/creator/marketplace",
+    component: Marketplace
+  },
+  {
+    path: "/creator/profile",
+    component: Profile
+  },
+  {
+    path: "/creator/messages",
+    component: Messages
   },
 ]
 

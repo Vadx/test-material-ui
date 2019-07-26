@@ -10,8 +10,8 @@ import {
   Chip,
   Input,
   Box,
-  Button,
-  OutlinedInput
+  Button
+  // OutlinedInput
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -19,9 +19,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
   },
   formControl: {
-    margin: theme.spacing(1),
     minWidth: '100%',
     maxWidth: '100%',
+    marginBottom: '20px'
   },
   chips: {
     display: 'flex',
@@ -44,16 +44,122 @@ const MenuProps = {
 };
 
 const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  'Accessories',
+  'Adobe',
+  'Advice',
+  'Affiliate',
+  'Affordable',
+  'Audio',
+  'Automotive',
+  'Beauties',
+  'Beauty',
+  'Beautycon',
+  'Boxes',
+  'Bracelet',
+  'Bracelets',
+  'Bronzer',
+  'Brush',
+  'Brushes',
+  'Challenge',
+  'Cheap',
+  'Clothing',
+  'Collab',
+  'Collaborations',
+  'Collection',
+  'College',
+  'Comedy',
+  'Concealer',
+  'Contour',
+  'Cooking',
+  'Cooking/Health',
+  'Cosmetics',
+  'Coupon',
+  'Curling',
+  'Decor',
+  'Detox',
+  'DIY',
+  'Dress',
+  'Drugstore',
+  'Earrings',
+  'Ebates',
+  'Equipment',
+  'Extensions',
+  'Eyebrows',
+  'Eyeliner',
+  'Eyeshadow',
+  'Family',
+  'Fashion',
+  'Fitness',
+  'Foundation',
+  'Friends',
+  'Funny',
+  'Gaming',
+  'Gifts',
+  'Guide',
+  'Hacks',
+  'Halloween',
+  'Hauls',
+  'Health',
+  'Holiday',
+  'Internet',
+  'Iphone',
+  'Jewelry',
+  'Lashes',
+  'Lifestyle',
+  'Liner',
+  'Lipstick',
+  'Lookbook',
+  'Makeup',
+  'Mascara',
+  'Matte',
+  'Movie',
+  'Movies',
+  'Music',
+  'Nails',
+  'Necklace',
+  'News/Politics',
+  'Organic',
+  'Organization',
+  'Outfit',
+  'People',
+  'Phone',
+  'Photo',
+  'Picture',
+  'Pizza',
+  'Planner',
+  'Playlist',
+  'Pregnancy',
+  'Primer',
+  'Product',
+  'Purse',
+  'Random',
+  'Review',
+  'Routine',
+  'School',
+  'Science/Education',
+  'Shadow',
+  'Shirt',
+  'Shoes',
+  'Shopping',
+  'Skincare',
+  'Software',
+  'Sound',
+  'Soundcloud',
+  'Sports/Athletic/Fitness',
+  'Storage',
+  'Style',
+  'Swatches',
+  'Tech',
+  'Teeth',
+  'Tutorial',
+  'TV Shows',
+  'Unboxing',
+  'Vegan',
+  'Vlog',
+  'Vlogging',
+  'Website',
+  'Workout',
+  'Write'
 ]
 
 function getStyles(name, personName, theme) {
@@ -136,32 +242,6 @@ export function GeneralSettings () {
         }}
       />
 
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="select-multiple-chip">Tags (choose up to 10)</InputLabel>
-        <Select
-          multiple
-          value={personName}
-          fullWidth
-          onChange={handleChange}
-          variant="outlined"
-          input={<OutlinedInput variant="outlined" id="select-multiple-chip" />}
-          renderValue={selected => (
-            <div className={classes.chips}>
-              {selected.map(value => (
-                <Chip key={value} label={value} className={classes.chip} />
-              ))}
-            </div>
-          )}
-          MenuProps={MenuProps}
-        >
-          {names.map(name => (
-            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
       <TextField
         id="outlined-instagram-input"
         label="Minimum Offer on Youtube"
@@ -185,6 +265,32 @@ export function GeneralSettings () {
         fullWidth
         style={{marginBottom: '20px'}}
       />
+
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="select-multiple-chip">Tags (choose up to 10)</InputLabel>
+        <Select
+          multiple
+          value={personName}
+          fullWidth
+          onChange={handleChange}
+          input={<Input id="select-multiple-chip" />}
+          renderValue={selected => (
+            <div className={classes.chips}>
+              {selected.map(value => (
+                <Chip key={value} label={value} className={classes.chip} />
+              ))}
+            </div>
+          )}
+          
+          MenuProps={MenuProps}
+        >
+          {names.map(name => (
+            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
 
       <Box textAlign="right">
         <Button style={{marginRight: '10px'}}>Close my account</Button>

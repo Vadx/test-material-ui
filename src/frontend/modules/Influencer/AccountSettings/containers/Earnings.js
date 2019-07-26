@@ -11,6 +11,7 @@ import {
   Link,
   Typography
 } from '@material-ui/core'
+import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,6 +19,15 @@ const useStyles = makeStyles(theme => ({
   },
   innerCol: {
     textAlign: 'center'
+  },
+  progress: {
+    verticalAlign: 'super',
+    marginLeft: '5px',
+    color: '#169c5d'
+  },
+  iconTop: {
+    position: 'relative',
+    top: '6px'
   }
 }))
 
@@ -48,11 +58,23 @@ export function Earnings () {
     <Paper className={classes.root}>
       <Grid container spacing={2} style={{marginBottom: '30px'}}>
         <Grid className={classes.innerCol} item xs>
-          <Typography component="h5" variant="h6">This Week</Typography>
-          <Typography component="h5" variant="h4">$250</Typography>
+          <Typography component="h4" variant="button">This Week</Typography>
+          <Typography component="h5" variant="h4">
+            $250
+            <Typography className={classes.progress} component="span" variant="body1">
+              <ArrowDropUp className={classes.iconTop} />
+              +650%
+            </Typography>
+          </Typography>
         </Grid>
-        <Grid className={classes.innerCol} item xs>2</Grid>
-        <Grid className={classes.innerCol} item xs>3</Grid>
+        <Grid className={classes.innerCol} item xs>
+          <Typography component="h4" variant="button">This Month</Typography>
+          <Typography component="h5" variant="h4">$1250</Typography>
+        </Grid>
+        <Grid className={classes.innerCol} item xs>
+          <Typography component="h4" variant="button">Year to Date</Typography>
+          <Typography component="h5" variant="h4">$2130</Typography>
+        </Grid>
       </Grid>
       <Table>
         <TableHead>

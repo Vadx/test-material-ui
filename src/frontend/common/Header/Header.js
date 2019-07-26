@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, Route } from 'react-router-dom'
 import { Logo } from '../Logo'
 import { BrandUserMenu } from './BrandUserMenu'
+import { InfluencerUserMenu } from './InfluencerUserMenu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import {Button, Box, Typography, Tooltip} from '@material-ui/core'
 
@@ -39,11 +39,41 @@ const useStyles = makeStyles({
   }
 })
 
+function Invite() {
+  const classes = useStyles()
+  return (
+    <Button className={classes.buttonInvite} variant="contained" color="primary">Invite Creators</Button>
+  )
+}
+
+function BrandMainMenu () {
+  const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
+  return (
+    <Box display='inline-flex'>
+      <ButtonMenu component={AdapterButton} to="/brand/campaigns" active='true'>Campaigns</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/brand/мessages">Messages</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/brand/discover">Discover</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/brand/insights">Insights</ButtonMenu>
+    </Box>
+  )
+}
+
+function InfluencerMainMenu () {
+  const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
+  return (
+    <Box display='inline-flex'>
+      <ButtonMenu component={AdapterButton} to="/creator/campaigns" active='true'>Campaigns</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/creator/мessages">Messages</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/creator/marketplace">Marketplace</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/creator/calendar">Calendar</ButtonMenu>
+      <ButtonMenu component={AdapterButton} to="/creator/profile">Profile</ButtonMenu>
+    </Box>
+  )
+}
+
 
 export function Header() {
     const classes = useStyles()
-    const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
-
     return (
         <Box
           display="flex"
@@ -53,12 +83,8 @@ export function Header() {
           className={classes.header}>
           <Box display="flex" alignItems="center">
             <Logo />
-            <Box display='inline-flex'>
-              <ButtonMenu component={AdapterButton} to="/brand/campaigns" active='true'>Campaigns</ButtonMenu>
-              <ButtonMenu component={AdapterButton} to="/мessages">Messages</ButtonMenu>
-              <ButtonMenu component={AdapterButton} to="/brand/discover">Discover</ButtonMenu>
-              <ButtonMenu component={AdapterButton} to="/brand/insights">Insights</ButtonMenu>
-            </Box>
+            <Route path={['/brand']} component={BrandMainMenu}/>
+            <Route path={['/creator']} component={InfluencerMainMenu} />
           </Box>
           <Box display="flex"  alignItems="center" justify="flex-end">
             <Tooltip title="Credits are applied to any transactions first before charging your credit card" placement="bottom">
@@ -73,8 +99,9 @@ export function Header() {
                 <Typography component="div" variant="caption">$1,960.00</Typography>
               </Box>
             </Tooltip>
-            <Button className={classes.buttonInvite} variant="contained" color="primary">Invite Creators</Button>
-            <BrandUserMenu />
+            <Route path={['/brand']} component={Invite}/>
+            <Route path={['/creator']} component={InfluencerUserMenu} />
+            <Route path={['/brand']} component={BrandUserMenu} />
           </Box>
         </Box>
     )
