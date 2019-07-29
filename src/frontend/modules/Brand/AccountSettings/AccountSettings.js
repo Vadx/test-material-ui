@@ -15,8 +15,7 @@ const useStyles = makeStyles(theme => ({
   wrap: {
     marginBottom: '25px',
     position: 'relative',
-    margin: '0 20px 25px',
-    paddingTop: '50px'
+    margin: '0 20px 25px'
   },
   line: {
     background: '#ccc',

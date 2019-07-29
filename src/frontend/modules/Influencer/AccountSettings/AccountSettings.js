@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import {Tabs, Tab, Box, Typography} from '@material-ui/core'
+import {Tabs, Tab, Box} from '@material-ui/core'
 
 import { GeneralSettings } from './containers/GeneralSettings'
 import { ShippingAddress } from './containers/ShippingAddress'
@@ -15,8 +15,7 @@ const useStyles = makeStyles(theme => ({
   wrap: {
     marginBottom: '25px',
     position: 'relative',
-    margin: '0 20px 25px',
-    paddingTop: '50px'
+    margin: '0 20px 25px'
   },
   line: {
     background: '#ccc',
@@ -59,7 +58,6 @@ export function AccountSettings () {
 
   return (
     <Box className={classes.wrap}>
-      <Typography variant="h4" component="h2" style={{marginBottom: '20px'}}>Account settings</Typography>
       <Box component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange} style={{position: 'relative'}}>
           <Tab className={classes.tabItem} label="General Settings" />  

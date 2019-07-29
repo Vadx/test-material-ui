@@ -13,6 +13,9 @@ import { Proposals } from './containers/Proposals'
 import { TopStatusBar } from './containers/TopStatusBar'
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    paddingTop: '60px'
+  },
   wrap: {
     marginBottom: '25px',
     position: 'relative',
@@ -66,8 +69,8 @@ export function CampaignTabs () {
   }
 
   return (
-    <Box>
-      <TopStatusBar/>
+    <Box className={classes.root}>
+      <TopStatusBar position="fixed" />
       <Box className={classes.wrap} component="div" style={{position: 'relative', marginBottom: '20px'}}>
         <Tabs className={classes.tabs} value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
           <Tab className={classes.tabItem} label="Proposals (0)" />  

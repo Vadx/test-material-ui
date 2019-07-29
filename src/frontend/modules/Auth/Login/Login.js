@@ -38,8 +38,7 @@ export function Login () {
     <Grid 
       container
       alignItems="stretch"
-      justify="center"
-      style={{ marginTop: '5%'}}>
+      justify="center">
       <Grid item style={{display: 'flex'}}>
           <Paper className={classes.paper} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
             <Box marginBottom="40px">

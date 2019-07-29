@@ -29,8 +29,7 @@ export function ChangePassword () {
   return (
     <Grid 
       container
-      justify="center"
-      style={{ marginTop: '5%'}}>
+      justify="center">
       <Paper className={classes.paper}>
         <Box style={{textAlign: 'center'}}><img className={classes.img} src={logo} alt="Logo" /></Box>
         <TextField

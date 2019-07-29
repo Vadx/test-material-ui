@@ -16,8 +16,8 @@ import {Settings, SaveAlt} from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(4, 2),
-  },
+    margin: theme.spacing(0, 2)
+  }
 }))
 
 const StyledTableCell = withStyles(theme => ({

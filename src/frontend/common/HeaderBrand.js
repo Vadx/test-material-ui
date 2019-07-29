@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import { Button, Box, Tooltip, Typography, MenuItem, Menu } from '@material-ui/core'
+import { Button, Box, Tooltip, Typography, MenuItem, Menu, AppBar } from '@material-ui/core'
 import Dehaze from '@material-ui/icons/Dehaze'
 
 const ButtonMenu = withStyles(theme => ({
@@ -53,6 +53,7 @@ export function HeaderBrand() {
   }
     
   return (
+    <AppBar position="fixed">
       <Box
         display="flex"
         justify="center" 
@@ -100,5 +101,6 @@ export function HeaderBrand() {
           </Menu>
         </Box>
       </Box>
-    )
+    </AppBar>
+  )
 }
