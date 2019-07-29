@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import { routes, RouteWithSubRoutes } from './routes'
-import { Header } from './common/Header'
+import { HeaderBrand } from './common/HeaderBrand'
+import { HeaderInfluencer } from './common/HeaderInfluencer'
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -22,7 +23,8 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={outerTheme}>
-        <Route path={['/brand', '/campaing', '/мessages', '/creator']} component={Header} />
+        <Route path={['/creator']} component={HeaderInfluencer} />
+        <Route path={['/brand']} component={HeaderBrand} />
 
         {routes.map((route, i) => (
           <RouteWithSubRoutes key={i} {...route} />

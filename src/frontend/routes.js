@@ -20,6 +20,7 @@ import { Profile } from './modules/Influencer/Profile'
 import { Login } from './modules/Auth/Login'
 import { ForgotPassword } from './modules/Auth/ForgotPassword'
 import { ChangePassword } from './modules/Auth/ChangePassword'
+import { Terms } from './common/Terms'
 
 // route config
 export const routes = [
@@ -104,6 +105,10 @@ export const routes = [
   {
     path: "/creator/messages",
     component: Messages
+  },
+  {
+    path: "/creator/terms",
+    component: Terms
   },
 ]
 

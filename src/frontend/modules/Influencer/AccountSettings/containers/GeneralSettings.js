@@ -10,7 +10,8 @@ import {
   Chip,
   Input,
   Box,
-  Button
+  Button,
+  Grid
   // OutlinedInput
 } from '@material-ui/core'
 
@@ -183,50 +184,55 @@ export function GeneralSettings () {
 
   return (
     <Paper className={classes.root}>
-
-      <TextField
-        id="outlined-name-input"
-        label="First name"
-        name="name"
-        autoComplete="First name"
-        margin="dense"
-        variant="outlined"
-        fullWidth
-        style={{marginBottom: '20px'}}
-      />
-
-      <TextField
-        id="outlined-last-name-input"
-        label="Last name"
-        name="phone"
-        autoComplete="Last name"
-        margin="dense"
-        variant="outlined"
-        fullWidth
-        style={{marginBottom: '20px'}}
-      />
-
-      <TextField
-        id="outlined-email-input"
-        label="Email"
-        type="email"
-        name="email"
-        autoComplete="email"
-        margin="dense"
-        variant="outlined"
-        fullWidth
-        style={{marginBottom: '20px'}}
-      />
-      <TextField
-        id="outlined-phone-input"
-        label="Phone number"
-        name="phone"
-        autoComplete="Phone number"
-        margin="dense"
-        variant="outlined"
-        fullWidth
-        style={{marginBottom: '20px'}}
-      />
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <TextField
+            id="outlined-name-input"
+            label="First name"
+            name="name"
+            autoComplete="First name"
+            margin="dense"
+            variant="outlined"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            id="outlined-last-name-input"
+            label="Last name"
+            name="phone"
+            autoComplete="Last name"
+            margin="dense"
+            variant="outlined"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            id="outlined-email-input"
+            label="Email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            margin="dense"
+            variant="outlined"
+            fullWidth
+            style={{marginBottom: '20px'}}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            id="outlined-phone-input"
+            label="Phone number"
+            name="phone"
+            autoComplete="Phone number"
+            margin="dense"
+            variant="outlined"
+            fullWidth
+            style={{marginBottom: '20px'}}
+          />
+        </Grid>
+      </Grid>
 
       <TextField
         id="date"
@@ -235,7 +241,7 @@ export function GeneralSettings () {
         variant="outlined"
         margin="dense"
         defaultValue="1990-05-24"
-        style={{marginBottom: '10px'}}
+        style={{marginBottom: '20px'}}
         fullWidth
         InputLabelProps={{
           shrink: true,
