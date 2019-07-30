@@ -10,11 +10,10 @@ import {
   MenuItem, 
   Menu, 
   Avatar, 
-  AppBar, 
-  Badge
-  // Popover 
+  AppBar
 } from '@material-ui/core'
 import { deepOrange } from '@material-ui/core/colors'
+import { PendingItems } from './PendingItems'
 
 const ButtonMenu = withStyles(theme => ({
   root: {
@@ -29,12 +28,6 @@ const ButtonMenu = withStyles(theme => ({
     },
   },
 }))(Button)
-
-const StyledBadge = withStyles(theme => ({
-  badge: {
-    right: -8,
-  },
-}))(Badge)
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -57,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: deepOrange[500],
   },
   progressButton: {
-    padding: '10px 10px'
+    paddingBottom: 10
   },
   progressLine: {
     overflow: 'hidden',
@@ -75,9 +68,6 @@ export function HeaderInfluencer() {
   const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
   const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
   const classes = useStyles()
-
-  // const open = Boolean(anchorEl)
-  // const id = open ? 'simple-popover' : undefined
 
   function handleClick(event) {
     setAnchorEl(event.currentTarget)
@@ -106,34 +96,14 @@ export function HeaderInfluencer() {
           </Box>
         </Box>
         <Box display="flex"  alignItems="center" justify="flex-end">
-          <ButtonMenu style={{marginRight: '30px'}}>
-            <StyledBadge className={classes.badge} badgeContent={1} color="secondary">
-              Pending Items
-            </StyledBadge>
-          </ButtonMenu>
-          {/* <Button aria-describedby={id} variant="contained">Open Popover</Button> */}
-          {/* <Popover
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-          >
-            <Typography>The content of the Popover.</Typography>
-          </Popover> */}
+          
+          <PendingItems />
           <Tooltip title="Credits are applied to any transactions first before charging your credit card" placement="bottom">
             <Box 
               display="flex" 
               flexDirection="column" 
               justifyContent="center"
-              alignItems="center"
+              alignItems="flex-start"
               mr={3}
               className={classes.boxBalance}>
               <Typography component="div" variant="caption" className={classes.styleTitle}>Pending funds</Typography>
@@ -151,14 +121,16 @@ export function HeaderInfluencer() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <Tooltip title="Level up to Grapevine Pro by completing three campaigns. Pro boosts your search ranking and reputation" placement="left">
-              <Box className={classes.progressButton}>
-                <Typography variant="overline" display="block" gutterBottom>Lavel 2: Builder</Typography>
-                <Box className={classes.progressLine}>
-                  <Box width='33%' p={0} my={0} style={{ background: '#3baaa6', height: '10px' }}></Box> 
+            <MenuItem>
+              <Tooltip title="Level up to Grapevine Pro by completing three campaigns. Pro boosts your search ranking and reputation" placement="left">
+                <Box className={classes.progressButton}>
+                  <Typography variant="overline" display="block" gutterBottom>Lavel 2: Builder</Typography>
+                  <Box className={classes.progressLine}>
+                    <Box width='33%' p={0} my={0} style={{ background: '#3baaa6', height: '10px' }}></Box> 
+                  </Box>
                 </Box>
-              </Box>
-            </Tooltip>
+              </Tooltip>
+            </MenuItem>
             <MenuItem component={AdapterLink} onClick={handleClose} to="/creator/account-settings">My account</MenuItem>
             <MenuItem component={AdapterLink} onClick={handleClose} to="/creator/terms">Guidelines</MenuItem>
             <MenuItem component={AdapterLink} onClick={handleClose} to="/login">Logout</MenuItem>

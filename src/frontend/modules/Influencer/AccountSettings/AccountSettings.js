@@ -49,7 +49,7 @@ TabContainer.propTypes = {
 }
 
 export function AccountSettings () {
-  const [value, setValue] = React.useState(1)
+  const [value, setValue] = React.useState(0)
   const classes = useStyles()
 
   function handleChange(event, newValue) {

@@ -2,10 +2,10 @@ import React from 'react'
 import { ProgressBar } from '../../../../common/ProgressBar'
 import { StatusList } from '../../../../common/StatusList'
 import { Grid, Paper, Typography, Avatar, Button, Link, Box} from '@material-ui/core'
+import Rating from '@material-ui/lab/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { deepOrange } from '@material-ui/core/colors'
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline'
-import Star from '@material-ui/icons/Star'
 
 const useStyles = makeStyles({
   orangeAvatar: {
@@ -33,11 +33,7 @@ export function CampaignInProgress () {
                 </Grid>
                 <Grid item xs={6}><Link><Typography>User Name</Typography></Link></Grid>
                 <Grid item xs={4}>
-                  <Star fontSize='small' style={{ color: '#E7AF00' }} />
-                  <Star fontSize='small' style={{ color: '#E7AF00' }} />
-                  <Star fontSize='small' style={{ color: '#E7AF00' }} />
-                  <Star fontSize='small' style={{ color: '#E7AF00' }} />
-                  <Star fontSize='small' style={{ color: '#E7AF00' }} />
+                  <Rating name="size-small" value={4} size="small" readOnly />
                 </Grid>
               </Grid>
 

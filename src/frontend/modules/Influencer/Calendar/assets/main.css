@@ -675,7 +675,9 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   align-items: center; }
 
 .fc-toolbar.fc-header-toolbar {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  padding: 0 1em;
+}
 
 .fc-toolbar.fc-footer-toolbar {
   margin-top: 1.5em; }
@@ -691,7 +693,9 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 /* View Structure
 --------------------------------------------------------------------------------------------------*/
 .fc-view-container {
-  position: relative; }
+  position: relative; 
+  background-color: #fff;
+}
 
 /* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
 /* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
@@ -870,6 +874,5 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   .fc button {
     display: none;
     /* don't display any button-related controls */ } }
-
 
 
