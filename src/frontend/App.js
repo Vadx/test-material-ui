@@ -7,6 +7,8 @@ import { routes, RouteWithSubRoutes } from './routes'
 import { HeaderBrand } from './common/HeaderBrand'
 import { HeaderInfluencer } from './common/HeaderInfluencer'
 
+import { DemoPage } from './DemoPage'
+
 const outerTheme = createMuiTheme({
   palette: {
     primary: {
@@ -31,6 +33,8 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={outerTheme}>
+
+        <Route exact path={['/']} component={DemoPage} />
         <Route path={['/creator']} component={HeaderInfluencer} />
         <Route path={['/brand']} component={HeaderBrand} />
 
