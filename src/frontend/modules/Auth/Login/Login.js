@@ -41,9 +41,9 @@ export function Login () {
       justify="center">
       <Grid item style={{display: 'flex'}}>
           <Paper className={classes.paper} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-            <Box marginBottom="40px">
+            <Box marginBottom="30px">
               <Typography variant="h6" component="h3" className={classes.title}>I'm an Influencer</Typography>
-              <Box marginBottom="30px" fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>You make great content on YouTube and Instagram and are looking for sponsorship opportunities from cool brands to support your channel.</Box>
+              <Box marginBottom="20px" fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>You make great content on YouTube and Instagram and are looking for sponsorship opportunities from cool brands to support your channel.</Box>
               <Box fontFamily="fontFamily" lineHeight="1.5" className={classes.subtitle}>Signup or login with your social media accounts.</Box>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="stretch">
