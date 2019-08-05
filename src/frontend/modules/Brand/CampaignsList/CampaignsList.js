@@ -11,10 +11,13 @@ import {
   TableRow,
   TableBody,
   TableCell,
-  TableSortLabel
+  TableSortLabel,
+  Typography,
+  Button
 } from '@material-ui/core'
 
-import {Settings, SaveAlt} from '@material-ui/icons'
+import {Settings, SaveAlt, Search} from '@material-ui/icons'
+import {ManageCampaign} from './containers/ManageCampaign'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,6 +37,13 @@ const useStyles = makeStyles(theme => ({
     top: 20,
     width: 1,
   },
+  settingsBtn: {
+    marginLeft: '5px'
+  },
+  searchIcon: {
+    fontSize: 14,
+    marginRight: 3
+  }
 }))
 
 const StyledTableCell = withStyles(theme => ({
@@ -43,17 +53,25 @@ const StyledTableCell = withStyles(theme => ({
   },
   body: {
     fontSize: 13,
-  },
+  }
 }))(TableCell)
 
-function createData(name, status, yview, yclicks, yconversions, ilikes, total) {
-  return { name, status, yview, yclicks, yconversions, ilikes, total};
+const PreviewBtn = withStyles(theme => ({
+  root: {
+    fontSize: '11px',
+    textTransform: 'none',
+    padding: '2px 5px'
+  }
+}))(Button)
+
+function createData(name, status, statusdate, yview, yclicks, yconversions, ilikes, total) {
+  return { name, status, statusdate, yview, yclicks, yconversions, ilikes, total};
 }
 
 const rows = [
-  createData('Campaign #0', 'active', 100, 20, 'active', 1000, 1000),
-  createData('Campaign #1', 'active', 20, 21, 'active', 500, 1200),
-  createData('Campaign #2', 'active', 233, 12, 'active', 601, 300),
+  createData('Campaign #0', 'active', 'Since 2019-07-25', 100, 20, 'active', 1000, 1000),
+  createData('Campaign #1', 'active', 'Since 2019-07-27' ,20, 21, 'active', 500, 1200),
+  createData('Campaign #2', 'active', 'Since 2019-07-29' ,233, 12, 'active', 601, 300),
 ]
 
 // ------_Start
@@ -83,7 +101,7 @@ function getSorting(order, orderBy) {
 
 const headRows = [
   { id: 'name', numeric: false, label: 'Campaign' },
-  { id: 'status', numeric: false, label: 'Status' },
+  { id: 'statusdate', numeric: false, label: 'Status' },
   { id: 'yview', numeric: false, label: 'YouTube view' },
   { id: 'yclicks', numeric: false, label: 'YouTube clicks' },
   { id: 'yconversions', numeric: false, label: 'YouTube conversions' },
@@ -101,7 +119,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <StyledTableCell/>
+        <StyledTableCell padding="none"/>
         {headRows.map(row => (
           <StyledTableCell
             key={row.id}
@@ -136,7 +154,6 @@ EnhancedTableHead.propTypes = {
   order: PropTypes.oneOf(['asc', 'desc']).isRequired,
   orderBy: PropTypes.string.isRequired
 }
-// ------_End
 
 export function CampaignsList () {
   const classes = useStyles()
@@ -152,6 +169,15 @@ export function CampaignsList () {
     setOrderBy(property);
   }
   // -- End sort
+
+  // Dialog Settings
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
 
   return (
     <Paper className={classes.root}>
@@ -170,28 +196,43 @@ export function CampaignsList () {
                       tabIndex={-1}
                       key={row.name}
                     >
-                      <StyledTableCell component="th" scope="row">
-                        <IconButton aria-label="Settings">
+                      <StyledTableCell component="th" scope="row" padding="none">
+                        <IconButton 
+                          className={classes.settingsBtn} 
+                          aria-label="Settings"
+                          onClick={handleClickOpen}
+                          >
                           <Settings fontSize="small" />
                         </IconButton>
+                        
                       </StyledTableCell>
                       <StyledTableCell align="left">
                         <Link component={AdapterLink} to="/brand/campaign">{row.name}</Link>
+                        <PreviewBtn>
+                          <Search fontSize="small" className={classes.searchIcon} />
+                          Campaign Preview
+                        </PreviewBtn>
                       </StyledTableCell>
-                      <StyledTableCell align="center">{row.status}</StyledTableCell>
-                      <StyledTableCell align="center">{row.yview}</StyledTableCell>
-                      <StyledTableCell align="center">{row.yclicks}</StyledTableCell>
-                      <StyledTableCell align="center">{row.yconversions}</StyledTableCell>
-                      <StyledTableCell align="center">{row.ilikes}</StyledTableCell>
+                      <StyledTableCell align="left">
+                        {row.status}
+                        <Typography variant="caption" color="textSecondary" display="block">{row.statusdate}</Typography>
+                      </StyledTableCell>
+                      <StyledTableCell align="left">{row.yview}</StyledTableCell>
+                      <StyledTableCell align="left">{row.yclicks}</StyledTableCell>
+                      <StyledTableCell align="left"><Link>{row.yconversions}</Link></StyledTableCell>
+                      <StyledTableCell align="left">{row.ilikes}</StyledTableCell>
                       <StyledTableCell align="left">{row.total}</StyledTableCell>
                       <StyledTableCell align="right">
-                        <SaveAlt color="disabled" fontSize="small" />
+                        <IconButton aria-label="Settings">
+                          <SaveAlt color="disabled" fontSize="small" />
+                        </IconButton>
                       </StyledTableCell>
                     </TableRow>
               )
           })}
         </TableBody>
       </Table>
+      <ManageCampaign open={open} onClose={handleClose} />
     </Paper>
   )
 }

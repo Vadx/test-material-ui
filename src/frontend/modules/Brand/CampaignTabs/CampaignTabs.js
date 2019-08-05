@@ -14,7 +14,6 @@ import { TopStatusBar } from './containers/TopStatusBar'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '60px'
   },
   wrap: {
     marginBottom: '25px',
