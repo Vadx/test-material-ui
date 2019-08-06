@@ -8,6 +8,8 @@ import { AccountSettings } from './modules/Brand/AccountSettings'
 import { Discover } from './modules/Brand/Discover'
 import { Insights } from './modules/Brand/Insights'
 import { CampaignsList } from './modules/Brand/CampaignsList'
+import { CampaignPreview } from './modules/Brand/CampaignPreview'
+import { TermsBrand } from './common/TermsBrand'
 
 // Influencer
 import { AccountSettings as AccountInfluencerSettings  } from './modules/Influencer/AccountSettings'
@@ -15,12 +17,12 @@ import { Calendar } from './modules/Influencer/Calendar'
 import { Campaigns } from './modules/Influencer/Campaigns'
 import { Marketplace } from './modules/Influencer/Marketplace'
 import { Profile } from './modules/Influencer/Profile'
+import { TermsInfluencer } from './common/TermsInfluencer'
 
 //Auth
 import { Login } from './modules/Auth/Login'
 import { ForgotPassword } from './modules/Auth/ForgotPassword'
 import { ChangePassword } from './modules/Auth/ChangePassword'
-import { Terms } from './common/Terms'
 
 // route config
 export const routes = [
@@ -83,6 +85,14 @@ export const routes = [
     component: Insights
   },
   {
+    path: "/brand/terms",
+    component: TermsBrand
+  },
+  {
+    path: "/brand/preview",
+    component: CampaignPreview
+  },
+  {
     path: "/creator/account-settings",
     component: AccountInfluencerSettings
   },
@@ -108,7 +118,7 @@ export const routes = [
   },
   {
     path: "/creator/terms",
-    component: Terms
+    component: TermsInfluencer
   },
 ]
 

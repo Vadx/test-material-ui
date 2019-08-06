@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export function Terms () {
+export function TermsInfluencer () {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>

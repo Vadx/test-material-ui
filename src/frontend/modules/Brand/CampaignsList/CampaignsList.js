@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core'
 
 import {Settings, SaveAlt, Search} from '@material-ui/icons'
+import {TopBar} from './containers/TopBar'
 import {ManageCampaign} from './containers/ManageCampaign'
 
 const useStyles = makeStyles(theme => ({
@@ -158,6 +159,7 @@ EnhancedTableHead.propTypes = {
 export function CampaignsList () {
   const classes = useStyles()
   const AdapterLink = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />)
+  const AdapterButton = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />)
 
   // ----Start Sort
   const [order, setOrder] = React.useState('asc')
@@ -180,59 +182,62 @@ export function CampaignsList () {
   }
 
   return (
-    <Paper className={classes.root}>
-      <Table>
-        <EnhancedTableHead
-          classes={classes}
-          order={order}
-          orderBy={orderBy}
-          onRequestSort={handleRequestSort}
-        />
-        <TableBody>
-          {stableSort(rows, getSorting(order, orderBy))
-            .map(row => {
-                return (
-                    <TableRow
-                      tabIndex={-1}
-                      key={row.name}
-                    >
-                      <StyledTableCell component="th" scope="row" padding="none">
-                        <IconButton 
-                          className={classes.settingsBtn} 
-                          aria-label="Settings"
-                          onClick={handleClickOpen}
-                          >
-                          <Settings fontSize="small" />
-                        </IconButton>
-                        
-                      </StyledTableCell>
-                      <StyledTableCell align="left">
-                        <Link component={AdapterLink} to="/brand/campaign">{row.name}</Link>
-                        <PreviewBtn>
-                          <Search fontSize="small" className={classes.searchIcon} />
-                          Campaign Preview
-                        </PreviewBtn>
-                      </StyledTableCell>
-                      <StyledTableCell align="left">
-                        {row.status}
-                        <Typography variant="caption" color="textSecondary" display="block">{row.statusdate}</Typography>
-                      </StyledTableCell>
-                      <StyledTableCell align="left">{row.yview}</StyledTableCell>
-                      <StyledTableCell align="left">{row.yclicks}</StyledTableCell>
-                      <StyledTableCell align="left"><Link>{row.yconversions}</Link></StyledTableCell>
-                      <StyledTableCell align="left">{row.ilikes}</StyledTableCell>
-                      <StyledTableCell align="left">{row.total}</StyledTableCell>
-                      <StyledTableCell align="right">
-                        <IconButton aria-label="Settings">
-                          <SaveAlt color="disabled" fontSize="small" />
-                        </IconButton>
-                      </StyledTableCell>
-                    </TableRow>
-              )
-          })}
-        </TableBody>
-      </Table>
-      <ManageCampaign open={open} onClose={handleClose} />
-    </Paper>
+    <React.Fragment>
+      <TopBar/>
+      <Paper className={classes.root}>
+        <Table>
+          <EnhancedTableHead
+            classes={classes}
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={handleRequestSort}
+          />
+          <TableBody>
+            {stableSort(rows, getSorting(order, orderBy))
+              .map(row => {
+                  return (
+                      <TableRow
+                        tabIndex={-1}
+                        key={row.name}
+                      >
+                        <StyledTableCell component="th" scope="row" padding="none">
+                          <IconButton 
+                            className={classes.settingsBtn} 
+                            aria-label="Settings"
+                            onClick={handleClickOpen}
+                            >
+                            <Settings fontSize="small" />
+                          </IconButton>
+                          
+                        </StyledTableCell>
+                        <StyledTableCell align="left">
+                          <Link component={AdapterLink} to="/brand/campaign">{row.name}</Link>
+                          <PreviewBtn component={AdapterButton} to="/brand/preview">
+                            <Search fontSize="small" className={classes.searchIcon} />
+                            Campaign Preview
+                          </PreviewBtn>
+                        </StyledTableCell>
+                        <StyledTableCell align="left">
+                          {row.status}
+                          <Typography variant="caption" color="textSecondary" display="block">{row.statusdate}</Typography>
+                        </StyledTableCell>
+                        <StyledTableCell align="left">{row.yview}</StyledTableCell>
+                        <StyledTableCell align="left">{row.yclicks}</StyledTableCell>
+                        <StyledTableCell align="left"><Link>{row.yconversions}</Link></StyledTableCell>
+                        <StyledTableCell align="left">{row.ilikes}</StyledTableCell>
+                        <StyledTableCell align="left">{row.total}</StyledTableCell>
+                        <StyledTableCell align="right">
+                          <IconButton aria-label="Settings">
+                            <SaveAlt color="disabled" fontSize="small" />
+                          </IconButton>
+                        </StyledTableCell>
+                      </TableRow>
+                )
+            })}
+          </TableBody>
+        </Table>
+        <ManageCampaign open={open} onClose={handleClose} />
+      </Paper>
+    </React.Fragment>
   )
 }

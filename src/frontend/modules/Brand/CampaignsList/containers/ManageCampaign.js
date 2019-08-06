@@ -67,9 +67,9 @@ const StylesPanel = withStyles({
 const TitlePanel = withStyles({
   root: {
     paddingLeft: 0,
-    minHeight: 48,
+    minHeight: 46,
     '&$expanded': {
-      minHeight: 48,
+      minHeight: 46,
     },
   },
   content: {
