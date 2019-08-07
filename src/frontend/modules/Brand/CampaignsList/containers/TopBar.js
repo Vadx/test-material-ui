@@ -31,7 +31,7 @@ export function TopBar() {
   const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
   return (
     <Box className={classes.root}>
-      <Button className={classes.CreateCampaign} variant="contained" color="primary">Create New Campaign</Button>
+      <Button component={AdapterButton} to="/brand/create" className={classes.CreateCampaign} variant="contained" color="primary">Create New Campaign</Button>
       <Button component={AdapterButton} to="/brand/terms" className={classes.ReadTerms} variant="contained" color="primary">Read Platform Terms</Button>
     </Box>
   )

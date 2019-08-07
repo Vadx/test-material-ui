@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import { Logo } from './Logo'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Button, Box, Tooltip, Typography, MenuItem, Menu, AppBar } from '@material-ui/core'
 import Dehaze from '@material-ui/icons/Dehaze'
+import {TopStatusBar} from '../modules/Brand/CampaignTabs/containers/TopStatusBar'
+import {TopNav} from '../modules/Brand/CampaignPreview/containers/TopNav'
 
 const ButtonMenu = withStyles(theme => ({
   root: {
@@ -101,6 +103,8 @@ export function HeaderBrand() {
           </Menu>
         </Box>
       </Box>
+      <Route exact path={['/brand/campaign']} component={TopStatusBar} />
+      <Route exact path={['/brand/preview']} component={TopNav} />
     </AppBar>
   )
 }

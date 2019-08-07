@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 3),
     maxWidth: '1024px',
-    margin: '30px auto'
+    margin: '60px auto 40px',
   }
 }))
 

@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {Box, Typography, Fab, Paper} from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBack'
-import { Statistic } from './Statistic'
 
 const useStyles = makeStyles(theme => ({
   wrap: {
     borderRadius: 0,
-    padding: '5px 20px',
+    padding: '15px 20px',
     boxShadow: 'none'
   },
   styleFub: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export function TopStatusBar () {
+export function TopNav () {
   const classes = useStyles()
   const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
   return (
@@ -34,10 +33,9 @@ export function TopStatusBar () {
         justifyContent="space-between"
       >
         <Box display="flex" alignItems="center" xs={8}>
-          <Fab component={AdapterButton} to="/brand/campaigns" className={classes.styleFub} variant="extended"><ArrowBack /></Fab>
-          <Typography variant="subtitle1" gutterBottom>Sed nec mattis leo</Typography>
+          <Fab component={AdapterButton} className={classes.styleFub} variant="extended" to="/brand/campaigns"><ArrowBack /></Fab>
+          <Typography variant="subtitle1" gutterBottom>Campaigns</Typography>
         </Box>
-        <Box display="flex" alignItems="center" justify="flex-end" xs={4}><Statistic /></Box>
       </Box>
     </Paper>
   )

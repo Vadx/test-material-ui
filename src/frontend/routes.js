@@ -9,6 +9,7 @@ import { Discover } from './modules/Brand/Discover'
 import { Insights } from './modules/Brand/Insights'
 import { CampaignsList } from './modules/Brand/CampaignsList'
 import { CampaignPreview } from './modules/Brand/CampaignPreview'
+import { CreateCampaign } from './modules/Brand/CreateCampaign'
 import { TermsBrand } from './common/TermsBrand'
 
 // Influencer
@@ -91,6 +92,10 @@ export const routes = [
   {
     path: "/brand/preview",
     component: CampaignPreview
+  },
+  {
+    path: "/brand/create/",
+    component: CreateCampaign
   },
   {
     path: "/creator/account-settings",

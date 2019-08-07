@@ -25,7 +25,7 @@ function createData(name, due, status) {
 const rows = [
   createData('Youtube Video', '07/18/2019', 'Pendings'),
   createData('Other Deliverables', '07/18/2019', 'Pendings')
-];
+]
 
 export function StatusList() {
   const classes = useStyles()
