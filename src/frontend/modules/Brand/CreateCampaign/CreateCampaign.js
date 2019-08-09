@@ -1,33 +1,42 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
-  Box, 
-  Typography,
+  Box,
   Grid
 } from '@material-ui/core'
+import { Header } from './containers/Header'
 import { LeftForm } from './containers/LeftForm'
 import { RightForm } from './containers/RightForm'
 import { Footer } from './containers/Footer'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // padding: theme.spacing(3, 2),
+    // padding: theme.spacing(3, 2)
   },
+  inner: {
+    maxWidth: '1024px',
+    margin: '0 auto 50px',
+    boxShadow: '0 0 20px #eee',
+    border: '1px solid #ddd',
+    borderRadius: '5px'
+  }
 }))
 
 export function CreateCampaign () {
   const classes = useStyles()
   return (
     <Box className={classes.root}>
-      <Grid container  spacing={0}>
-        <Grid item xs={6}>
-          <LeftForm />
+      <Header/>
+      <Box className={classes.inner}>
+        <Grid container spacing={0}>
+          <Grid item xs={6}>
+            <LeftForm />
+          </Grid>
+          <Grid item xs={6}>
+            <RightForm />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <RightForm />
-        </Grid>
-      </Grid>
-      <Typography variant="h5" component="h3">CreateCampaign</Typography>
+      </Box>
       <Footer />
     </Box>
   )
