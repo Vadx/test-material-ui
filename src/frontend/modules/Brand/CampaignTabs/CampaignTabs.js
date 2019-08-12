@@ -8,6 +8,7 @@ import { CampaignInProgress } from './containers/CampaignInProgress'
 import { Demographics } from './containers/Demographics'
 import { LiveInstagramPosts } from './containers/LiveInstagramPosts'
 import { LiveVideos } from './containers/LiveVideos'
+import { OtherPosts } from './containers/OtherPosts'
 import { Performance } from './containers/Performance'
 import { Proposals } from './containers/Proposals'
 
@@ -33,8 +34,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: '13px',
     textTransform: 'none',
     position: 'relative',
-    paddingLeft: '0',
-    paddingRight: '0',
+    paddingLeft: '15',
+    paddingRight: '15',
     minWidth: '120px'
   },
   swichView: {
@@ -73,8 +74,9 @@ export function CampaignTabs () {
         <Tabs className={classes.tabs} value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
           <Tab className={classes.tabItem} label="Proposals (0)" />  
           <Tab className={classes.tabItem} label="In progress (1)" />
-          <Tab className={classes.tabItem} label="Live videos (0)" disabled />
-          <Tab className={classes.tabItem} label="Live instagram posts (0)" disabled />
+          <Tab className={classes.tabItem} label="Live videos (0)" />
+          <Tab className={classes.tabItem} label="Live instagram posts (0)" />
+          <Tab className={classes.tabItem} label="Other Competed Posts (3)" />
           <Tab className={classes.tabItem} label="Performance" />
           <Tab className={classes.tabItem} label="Demographics" />
         </Tabs>
@@ -88,8 +90,9 @@ export function CampaignTabs () {
       {value === 1 && <TabContainer><CampaignInProgress /></TabContainer>}
       {value === 2 && <TabContainer><LiveVideos /></TabContainer>}
       {value === 3 && <TabContainer><LiveInstagramPosts /></TabContainer>}
-      {value === 4 && <TabContainer><Performance/></TabContainer>}
-      {value === 5 && <TabContainer><Demographics /></TabContainer>}
+      {value === 4 && <TabContainer><OtherPosts /></TabContainer>}
+      {value === 5 && <TabContainer><Performance/></TabContainer>}
+      {value === 6 && <TabContainer><Demographics /></TabContainer>}
     </Box>
   )
 }

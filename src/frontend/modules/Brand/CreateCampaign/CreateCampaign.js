@@ -11,7 +11,6 @@ import { Footer } from './containers/Footer'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // padding: theme.spacing(3, 2)
   },
   inner: {
     maxWidth: '1170px',

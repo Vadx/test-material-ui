@@ -149,7 +149,7 @@ export function LeftForm () {
         <Typography variant="button" component="h6" className={classes.titleAudience}>Audience Targeting</Typography>
         <Box className={classes.contentAudience}>
           <Grid container spacing={3}>
-            <Grid item xs={7}>
+            <Grid item xs={8}>
               <Box display="flex" alignItems="center">
                 <Typography gutterBottom variant="subtitle2" className={classes.label}>Social Networks</Typography>
                 <Tooltip title="Choose at least one network for your content to appear on." placement="right-start">
@@ -188,7 +188,7 @@ export function LeftForm () {
               </ToggleButtonGroup>
               
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={4}>
               <Box display="flex" alignItems="center">
                 <Typography gutterBottom variant="subtitle2" className={classes.label}>Geography</Typography>
                 <Tooltip title="Where is your target audience? Grapevine has influencers in over 130 countries." placement="right-start">
