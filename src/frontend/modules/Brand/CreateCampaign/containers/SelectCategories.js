@@ -35,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     minWidth: 290,
+    '& .MuiOutlinedInput-root': {
+      height: 40
+    }
   },
   input: {
     display: 'flex',
@@ -64,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   placeholder: {
     position: 'absolute',
     left: 8,
-    bottom: 6,
+    bottom: 9,
     fontSize: 14,
   },
   paper: {

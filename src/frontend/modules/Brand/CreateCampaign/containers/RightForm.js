@@ -6,7 +6,8 @@ import {
   Link, 
   TextField, 
   Tooltip, 
-  Button
+  Button,
+  Grid
 } from '@material-ui/core'
 import Help from '@material-ui/icons/Help'
 import {ToggleButton, ToggleButtonGroup} from '@material-ui/lab'
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   ageButton: {
-    width: '70px'
+    width: '60px'
   },
   grayBox: {
     background: '#f3f3f3',
@@ -69,7 +70,7 @@ export function RightForm () {
         <TextField
           fullWidth
           multiline
-          rows="4"
+          rows="3"
           margin="dense"
           variant="outlined"
           placeholder="A few descriptive sentences about what your campaign is, what your goals are, and anything else the creators should know before they apply."
@@ -85,7 +86,7 @@ export function RightForm () {
         <TextField
           fullWidth
           multiline
-          rows="4"
+          rows="3"
           margin="dense"
           variant="outlined"
           placeholder="What should the creators make sure to do in their content? This is where you should include specific content instructions and talking points.."
@@ -116,7 +117,7 @@ export function RightForm () {
               <Help className={classes.icon} color="primary" />
             </Tooltip>
           </Box>
-          <Box p={1} mb={3}>
+          <Box p={1} mb={2}>
             <Button
               variant="contained"
               component="label"
@@ -130,7 +131,7 @@ export function RightForm () {
             </Button>
           </Box>
 
-          <Box mb={3}>
+          {/* <Box mb={3}>
             <Box display="flex" alignItems="center" justifyContent="space-between">
                 <Typography variant="subtitle2">Content Categories</Typography>
                 <Tooltip title="Try to find existing categories that are relevant to yourcampaign. These help find creators that have influence in a particular topic." placement="right-start">
@@ -138,9 +139,35 @@ export function RightForm () {
                 </Tooltip>
             </Box>
             <SelectCategories />
-          </Box>
+          </Box> */}
+          <Grid container spacing={3}>
+            <Grid item style={{flex: '1 0 0'}}>
+              <Box display="flex" alignItems="center" justifyContent="space-between">
+                  <Typography variant="subtitle2">Content Categories</Typography>
+                  <Tooltip title="Try to find existing categories that are relevant to yourcampaign. These help find creators that have influence in a particular topic." placement="right-start">
+                    <Typography variant="caption" color="textSecondary">max 3</Typography>
+                  </Tooltip>
+              </Box>
+              <SelectCategories />
 
-          <Box>
+            </Grid>
+            <Grid item>
+            <Box display="flex" alignItems="center" mb={1}>
+              <Typography variant="subtitle2">Age Restrictions</Typography>
+              <Tooltip title="This relates to the age of the creator. Consider using this if you are shipping an age restricted item, or only want to work with creators older than a certain age." placement="right-start">
+                <Help className={classes.icon} color="primary" />
+              </Tooltip>
+            </Box>
+            <ToggleButtonGroup size="small" value={age} exclusive onChange={handleAge}>
+              <ToggleButton className={classes.ageButton} value="none">None</ToggleButton>
+              <ToggleButton className={classes.ageButton} value="18+">18+</ToggleButton>
+              <ToggleButton className={classes.ageButton} value="21+">21+</ToggleButton>
+            </ToggleButtonGroup>
+
+            </Grid>
+          </Grid>
+
+          {/* <Box>
             <Box display="flex" alignItems="center" mb={1}>
               <Typography variant="subtitle2">Age Restrictions</Typography>
               <Tooltip title="This relates to the age of the creator. Consider using this if you are shipping an age restricted item, or only want to work with creators older than a certain age." placement="right-start">
@@ -152,7 +179,7 @@ export function RightForm () {
               <ToggleButton className={classes.ageButton} value="18+">18+</ToggleButton>
               <ToggleButton className={classes.ageButton} value="21+">21+</ToggleButton>
             </ToggleButtonGroup>
-          </Box>
+          </Box> */}
         </Box>
         <Button variant="contained" color="primary" fullWidth>Submit Campaign</Button>
       </Box>

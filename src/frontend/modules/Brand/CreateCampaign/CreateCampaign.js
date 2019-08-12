@@ -14,11 +14,13 @@ const useStyles = makeStyles(theme => ({
     // padding: theme.spacing(3, 2)
   },
   inner: {
-    maxWidth: '1024px',
+    maxWidth: '1170px',
     margin: '0 auto 50px',
     boxShadow: '0 0 20px #eee',
     border: '1px solid #ddd',
-    borderRadius: '5px'
+  },
+  leftCol: {
+    background: '#5c6474'
   }
 }))
 
@@ -29,7 +31,7 @@ export function CreateCampaign () {
       <Header/>
       <Box className={classes.inner}>
         <Grid container spacing={0}>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.leftCol}>
             <LeftForm />
           </Grid>
           <Grid item xs={6}>
