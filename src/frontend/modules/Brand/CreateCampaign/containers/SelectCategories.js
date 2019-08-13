@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     minWidth: 290,
     '& .MuiOutlinedInput-root': {
-      height: 40
+      minHeight: 40
     }
   },
   input: {

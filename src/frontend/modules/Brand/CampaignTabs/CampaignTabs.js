@@ -74,8 +74,8 @@ export function CampaignTabs () {
         <Tabs className={classes.tabs} value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
           <Tab className={classes.tabItem} label="Proposals (0)" />  
           <Tab className={classes.tabItem} label="In progress (1)" />
-          <Tab className={classes.tabItem} label="Live videos (0)" />
-          <Tab className={classes.tabItem} label="Live instagram posts (0)" />
+          <Tab className={classes.tabItem} label="Live videos (2)" />
+          <Tab className={classes.tabItem} label="Live Instagram Posts (4)" />
           <Tab className={classes.tabItem} label="Other Competed Posts (3)" />
           <Tab className={classes.tabItem} label="Performance" />
           <Tab className={classes.tabItem} label="Demographics" />

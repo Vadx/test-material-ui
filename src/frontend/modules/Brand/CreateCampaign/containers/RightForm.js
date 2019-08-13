@@ -130,16 +130,6 @@ export function RightForm () {
               />
             </Button>
           </Box>
-
-          {/* <Box mb={3}>
-            <Box display="flex" alignItems="center" justifyContent="space-between">
-                <Typography variant="subtitle2">Content Categories</Typography>
-                <Tooltip title="Try to find existing categories that are relevant to yourcampaign. These help find creators that have influence in a particular topic." placement="right-start">
-                  <Typography variant="caption" color="textSecondary">max 3</Typography>
-                </Tooltip>
-            </Box>
-            <SelectCategories />
-          </Box> */}
           <Grid container spacing={3}>
             <Grid item style={{flex: '1 0 0'}}>
               <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -166,20 +156,7 @@ export function RightForm () {
 
             </Grid>
           </Grid>
-
-          {/* <Box>
-            <Box display="flex" alignItems="center" mb={1}>
-              <Typography variant="subtitle2">Age Restrictions</Typography>
-              <Tooltip title="This relates to the age of the creator. Consider using this if you are shipping an age restricted item, or only want to work with creators older than a certain age." placement="right-start">
-                <Help className={classes.icon} color="primary" />
-              </Tooltip>
-            </Box>
-            <ToggleButtonGroup value={age} exclusive onChange={handleAge}>
-              <ToggleButton className={classes.ageButton} value="none">None</ToggleButton>
-              <ToggleButton className={classes.ageButton} value="18+">18+</ToggleButton>
-              <ToggleButton className={classes.ageButton} value="21+">21+</ToggleButton>
-            </ToggleButtonGroup>
-          </Box> */}
+          
         </Box>
         <Button variant="contained" color="primary" fullWidth>Submit Campaign</Button>
       </Box>

@@ -16,9 +16,6 @@ import {
 import {People, ChatBubble} from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    // margin: theme.spacing(0, 2)
-  },
   tableWrapper: {
     overflowX: 'auto',
   },
@@ -148,7 +145,7 @@ export function OtherPosts () {
   // -- End sort
   return (
     <React.Fragment>
-      <Paper className={classes.root}>
+      <Paper className={classes.tableWrapper}>
         <Table>
           <EnhancedTableHead
             classes={classes}
