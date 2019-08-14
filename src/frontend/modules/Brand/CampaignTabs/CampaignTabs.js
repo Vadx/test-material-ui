@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import {Tabs, Tab, Box} from '@material-ui/core'
 import { ViewModule, ViewStream } from '@material-ui/icons'
 
-import { CampaignInProgress } from './containers/CampaignInProgress'
+import { InProgress } from './containers/InProgress'
 import { Demographics } from './containers/Demographics'
 import { LiveInstagramPosts } from './containers/LiveInstagramPosts'
 import { LiveVideos } from './containers/LiveVideos'
@@ -87,7 +87,7 @@ export function CampaignTabs () {
         </Box>
       </Box>
       {value === 0 && <TabContainer><Proposals /></TabContainer>}
-      {value === 1 && <TabContainer><CampaignInProgress /></TabContainer>}
+      {value === 1 && <TabContainer><InProgress /></TabContainer>}
       {value === 2 && <TabContainer><LiveVideos /></TabContainer>}
       {value === 3 && <TabContainer><LiveInstagramPosts /></TabContainer>}
       {value === 4 && <TabContainer><OtherPosts /></TabContainer>}

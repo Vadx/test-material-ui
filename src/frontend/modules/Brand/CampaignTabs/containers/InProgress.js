@@ -18,10 +18,14 @@ const useStyles = makeStyles({
   },
   cardWrap: {
     padding: 20,
+  },
+  lastCol: {
+    justifyContent: 'flex-end',
+    textAlign: 'right'
   }
 })
 
-export function CampaignInProgress () {
+export function InProgress () {
   const classes = useStyles()
   return (
     <Grid container spacing={3}>
@@ -32,20 +36,47 @@ export function CampaignInProgress () {
                   <Avatar className={classes.orangeAvatar}>H</Avatar>
                 </Grid>
                 <Grid item xs={6}><Link><Typography>User Name</Typography></Link></Grid>
-                <Grid item xs={4}>
-                  <Rating name="size-small" value={4} size="small" readOnly />
+                <Grid item xs={4} className={classes.lastCol}>
+                  <Typography variant="caption" color="textSecondary">No reviews</Typography>
                 </Grid>
               </Grid>
 
               <ProgressBar />
-
               <StatusList />
-              
               <Typography variant="subtitle2" gutterBottom>Grapevine Tip:</Typography>
               <Typography variant="caption" display="block" style={{ marginBottom: '30px' }}>Check in with viktoriia-naughton about 5 days before your content goes live to make sure things are on schedule.</Typography>
               <Box display='flex' justifyContent='space-between' alignItems='center'>
                 <Box flexGrow={1}>
-                  <Button style={{width: '100%'}} variant="contained" color="primary">Waiting for video</Button>
+                  <Button disabled style={{width: '100%'}} variant="contained" color="primary">Waiting for video</Button>
+                </Box>
+                <Box>
+                  <Button style={{marginLeft: '20px'}}>
+                    <ChatBubbleOutline className={classes.extendedIcon} fontSize='small' /> Chat
+                  </Button>
+                </Box>
+              </Box>
+            </Paper>
+          </Grid>
+
+          <Grid item xs={4}>
+            <Paper className={classes.cardWrap}>
+              <Grid container style={{ marginBottom: '20px' }}>
+                <Grid item xs={2}>
+                  <Avatar className={classes.orangeAvatar}>H</Avatar>
+                </Grid>
+                <Grid item xs={6}><Link><Typography>User Name</Typography></Link></Grid>
+                <Grid item xs={4}>
+                  <Rating style={{justifyContent: 'flex-end'}} name="size-small" value={4} size="small" readOnly />
+                </Grid>
+              </Grid>
+
+              <ProgressBar />
+              <StatusList />
+              <Typography variant="subtitle2" gutterBottom>Grapevine Tip:</Typography>
+              <Typography variant="caption" display="block" style={{ marginBottom: '30px' }}>Check in with viktoriia-naughton about 5 days before your content goes live to make sure things are on schedule.</Typography>
+              <Box display='flex' justifyContent='space-between' alignItems='center'>
+                <Box flexGrow={1}>
+                  <Button style={{width: '100%'}} variant="contained" color="primary">Confirm a day left</Button>
                 </Box>
                 <Box>
                   <Button style={{marginLeft: '20px'}}>
