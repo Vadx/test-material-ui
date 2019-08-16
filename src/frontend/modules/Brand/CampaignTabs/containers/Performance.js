@@ -61,11 +61,9 @@ export function Performance () {
           <Grid item xs={10}>
             <Typography variant="caption">Copy and paste the following code before the <Typography component="span" className={classes.code}>{'</'}body{'>'}</Typography> tag on the page of your website where you want to track actions. For example, to track registrations, place the code on your 'registration completed' web page. To include a monetary value for each conversion, edit the code to assign a conversion value using the <Typography component="span" className={classes.code}>data-amount=""</Typography> field.</Typography>
           </Grid>
-         
         </Grid>
 
         <Grid container style={{marginBottom: '40px'}}>
-
           <Grid item xs={2}>
             <Typography variant="subtitle2">Step 2:</Typography>
           </Grid>
@@ -93,12 +91,10 @@ export function Performance () {
             placeholder="A few descriptive sentences about what your campaign is, what your goals are, and anything else the creators should know before they apply."
             value={'code'}
             className={classes.form}
-            
           />
           <Button variant="contained" color="primary">Validate tracking code</Button>
         </Box>
       </Paper>
     </React.Fragment>
-    
   )
 }

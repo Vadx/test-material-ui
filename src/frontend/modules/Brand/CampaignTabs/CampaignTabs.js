@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import {Tabs, Tab, Box} from '@material-ui/core'
-import { ViewModule, ViewStream } from '@material-ui/icons'
+// import { ViewModule, ViewStream } from '@material-ui/icons'
 
 import { InProgress } from './containers/InProgress'
 import { Demographics } from './containers/Demographics'
@@ -38,11 +38,11 @@ const useStyles = makeStyles(theme => ({
     paddingRight: '15',
     minWidth: '120px'
   },
-  swichView: {
-    position: 'absolute',
-    right: '0',
-    bottom: '4px'
-  },
+  // swichView: {
+  //   position: 'absolute',
+  //   right: '0',
+  //   bottom: '4px'
+  // },
   tabs: {
     position: 'relative'
   }
@@ -81,10 +81,10 @@ export function CampaignTabs () {
           <Tab className={classes.tabItem} label="Demographics" />
         </Tabs>
         <Box className={classes.line}></Box>
-        <Box className={classes.swichView}>
+        {/* <Box className={classes.swichView}>
           <ViewModule /> 
           <ViewStream />
-        </Box>
+        </Box> */}
       </Box>
       {value === 0 && <TabContainer><Proposals /></TabContainer>}
       {value === 1 && <TabContainer><InProgress /></TabContainer>}
