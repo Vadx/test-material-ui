@@ -7,6 +7,7 @@ import {
   InputBase
 } from '@material-ui/core'
 import { Help, Search } from '@material-ui/icons'
+import { Filter } from './Filter'
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -24,19 +25,16 @@ const useStyles = makeStyles(theme => ({
   },
   search: {
     position: 'relative',
+    top: 2,
     borderRadius: 20,
     backgroundColor: fade(theme.palette.common.white, 1),
     border: '1px solid #ccc',
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    margin: theme.spacing(1, 2, 0, 2),
+    margin: theme.spacing(0, 2, 0, 2),
     width: '280px',
     height: '34px'
-    // [theme.breakpoints.up('sm')]: {
-    //   marginLeft: theme.spacing(3),
-    //   width: 'auto',
-    // },
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -49,11 +47,11 @@ const useStyles = makeStyles(theme => ({
   },
   inputInput: {
     padding: theme.spacing(0, 1, 0, 7),
-    transition: theme.transitions.create('width'),
+    // transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
+    // [theme.breakpoints.up('md')]: {
+    //   width: 200,
+    // },
   },
 }))
 
@@ -70,27 +68,39 @@ const StyledButton = withStyles(theme => ({
 
 export default function FooterDiscover () {
   const classes = useStyles()
+
+  // Filter
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
+
   return (
-    <Paper className={classes.wrapper}>
-      <Box display="flex" justifyContent="space-between" alignItems="stretch" height="100%">
-        <Box className={classes.leftBox}>
-          <Box className={classes.search} display="inline-flex">
-            <div className={classes.searchIcon}><Search color="disabled" /></div>
-            <InputBase
-              placeholder="Search…"
-              className={classes.inputInput}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+    <React.Fragment>
+      <Paper className={classes.wrapper}>
+        <Box display="flex" justifyContent="space-between" alignItems="stretch" height="100%">
+          <Box className={classes.leftBox}>
+            <Box className={classes.search} display="inline-flex">
+              <div className={classes.searchIcon}><Search color="disabled" /></div>
+              <InputBase
+                placeholder="Search…"
+                className={classes.inputInput}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Box>
+            <StyledButton>Segments</StyledButton>
           </Box>
-          <StyledButton>Segments</StyledButton>
+          <Box>
+            <StyledButton onClick={handleClickOpen}>Filters</StyledButton>
+            <StyledButton>Reset</StyledButton>
+            <StyledButton><Help fontSize="small" color="disabled" /></StyledButton>
+          </Box>
         </Box>
-        <Box>
-          <StyledButton>Filters</StyledButton>
-          <StyledButton>Reset</StyledButton>
-          <StyledButton><Help fontSize="small" color="disabled" /></StyledButton>
-        </Box>
-      </Box>
-      
-    </Paper>
+      </Paper>
+      <Filter open={open} onClose={handleClose} />
+    </React.Fragment>
   )
 }

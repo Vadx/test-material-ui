@@ -53,6 +53,7 @@ const StyledTableCell = withStyles(theme => ({
     paddingBottom: '18px',
     position: 'sticky',
     top: 0,
+    zIndex: 10,
     '& .MuiTableSortLabel-root.MuiTableSortLabel-active': {
       color: '#fff'
     },

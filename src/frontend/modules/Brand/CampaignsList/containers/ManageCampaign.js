@@ -84,7 +84,7 @@ const Details = withStyles(theme => ({
   root: {
     padding: theme.spacing(1),
   },
-}))(ExpansionPanelDetails);
+}))(ExpansionPanelDetails)
 
 const Title = withStyles(styles)(props => {
   const { children, classes, onClose } = props
