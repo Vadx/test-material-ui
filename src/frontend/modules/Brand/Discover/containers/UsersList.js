@@ -51,6 +51,8 @@ const StyledTableCell = withStyles(theme => ({
     color: '#fff',
     paddingTop: '18px',
     paddingBottom: '18px',
+    paddingLeft: '10px',
+    paddingRight: '10px',
     position: 'sticky',
     top: 0,
     zIndex: 10,
@@ -65,31 +67,33 @@ const StyledTableCell = withStyles(theme => ({
     }
   },
   body: {
-    fontSize: 13
+    fontSize: 13,
+    paddingLeft: '10px',
+    paddingRight: '10px'
   }
 }))(TableCell)
 
-function createData(name, rating, subscribers, estcost, followers, avgcost) {
-  return { name, rating, subscribers, estcost, followers, avgcost};
+function createData(name, rating, subscribers, estcost, followers, avgcost, avglikes, avgcomm, facebook, twitter) {
+  return { name, rating, subscribers, estcost, followers, avgcost, avglikes, avgcomm, facebook, twitter};
 }
 
 const rows = [
-  createData('User #0', 1, '303K', '$59.80', '$50K', '$50K' ),
-  createData('User #1', 2, '100K', '$109.20', '$8K', '$7K'),
-  createData('User #2', 3, '200K', '$70.10', '$19K', '$51K'),
-  createData('User #4', 5, '50K', '$70.10', '$7K', '$30K'),
-  createData('User #5', 1, '303K', '$59.80', '$50K', '$50K' ),
-  createData('User #6', 2, '100K', '$109.20', '$8K', '$7K'),
-  createData('User #7', 3, '200K', '$70.10', '$19K', '$51K'),
-  createData('User #8', 5, '50K', '$70.10', '$7K', '$30K'),
-  createData('User #9', 1, '303K', '$59.80', '$50K', '$50K' ),
-  createData('User #10', 2, '100K', '$109.20', '$8K', '$7K'),
-  createData('User #11', 3, '200K', '$70.10', '$19K', '$51K'),
-  createData('User #12', 5, '50K', '$70.10', '$7K', '$30K'),
-  createData('User #13', 1, '303K', '$59.80', '$50K', '$50K' ),
-  createData('User #14', 2, '100K', '$109.20', '$8K', '$7K'),
-  createData('User #15', 3, '200K', '$70.10', '$19K', '$51K'),
-  createData('User #16', 5, '50K', '$70.10', '$7K', '$30K'),
+  createData('User #0', 1, '303K', '$59.80', '$50K', '$50K', '3K', 3 ,5 ,6),
+  createData('User #1', 2, '100K', '$109.20', '$8K', '$7K', '3K', 3 ,5 ,6),
+  createData('User #2', 3, '200K', '$70.10', '$19K', '$51K', '3K', 3 ,5 ,6),
+  createData('User #4', 5, '50K', '$70.10', '$7K', '$30K', '3K', 3 ,5 ,6),
+  createData('User #5', 1, '303K', '$59.80', '$50K', '$50K', '3K', 3 ,5 ,6),
+  createData('User #6', 2, '100K', '$109.20', '$8K', '$7K', '3K', 3 ,5 ,6),
+  createData('User #7', 3, '200K', '$70.10', '$19K', '$51K', '3K', 3 ,5 ,6),
+  createData('User #8', 5, '50K', '$70.10', '$7K', '$30K', '3K', 3 ,5 ,6),
+  createData('User #9', 1, '303K', '$59.80', '$50K', '$50K', '3K', 3 ,5 ,6),
+  createData('User #10', 2, '100K', '$109.20', '$8K', '$7K', '3K', 3 ,5 ,6),
+  createData('User #11', 3, '200K', '$70.10', '$19K', '$51K', '3K', 3 ,5 ,6),
+  createData('User #12', 5, '50K', '$70.10', '$7K', '$30K', '3K', 3 ,5 ,6),
+  createData('User #13', 1, '303K', '$59.80', '$50K', '$50K', '3K', 3 ,5 ,6),
+  createData('User #14', 2, '100K', '$109.20', '$8K', '$7K', '3K', 3 ,5 ,6),
+  createData('User #15', 3, '200K', '$70.10', '$19K', '$51K', '3K', 3 ,5 ,6),
+  createData('User #16', 5, '50K', '$70.10', '$7K', '$30K', '3K', 3 ,5 ,6),
 ]
 
 // ------_Start
@@ -123,7 +127,11 @@ const headRows = [
   { id: 'subscribers', numeric: false, label: 'YOUTUBE Subscribers' },
   { id: 'estcost', numeric: false, label: 'YOUTUBE Est.Cost'},
   { id: 'followers', numeric: false, label: 'INSTAGRAM followers'},
-  { id: 'avgcost', numeric: false, label: 'INSTAGRAM Avg.Cost'}
+  { id: 'avgcost', numeric: false, label: 'INSTAGRAM Avg.Cost'},
+  { id: 'avglikes', numeric: false, label: 'INSTAGRAM Avg. Likes'},
+  { id: 'avgcomm', numeric: false, label: 'INSTAGRAM Avg. Comments'},
+  { id: 'facebook', numeric: false, label: 'FACEBOOK Likes'},
+  { id: 'twitter', numeric: false, label: 'TWITTER Followers'}
 ]
 
 function EnhancedTableHead(props) {
@@ -198,7 +206,7 @@ export default function UsersList () {
                         tabIndex={-1}
                         key={row.name}
                       > 
-                        <StyledTableCell align="left">
+                        <StyledTableCell align="left" style={{width: 240}}>
                           <Avatar alt="Remy Sharp" className={classes.avatar} />
                           <Link>{row.name}</Link>
                         </StyledTableCell>
@@ -209,6 +217,10 @@ export default function UsersList () {
                         <StyledTableCell align="left">{row.estcost}</StyledTableCell>
                         <StyledTableCell align="left">{row.followers}</StyledTableCell>
                         <StyledTableCell align="left">{row.avgcost}</StyledTableCell>
+                        <StyledTableCell align="left">{row.avglikes}</StyledTableCell>
+                        <StyledTableCell align="left">{row.avgcomm}</StyledTableCell>
+                        <StyledTableCell align="left">{row.facebook}</StyledTableCell>
+                        <StyledTableCell align="left">{row.twitter}</StyledTableCell>
                       </TableRow>
                 )
             })}
