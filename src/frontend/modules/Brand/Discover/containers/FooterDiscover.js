@@ -70,12 +70,12 @@ export default function FooterDiscover () {
   const classes = useStyles()
 
   // Filter
-  const [open, setOpen] = React.useState(false);
-  function handleClickOpen() {
-    setOpen(true)
+  const [open, setOpenFilter] = React.useState(false);
+  function handleClickOpenFilter() {
+    setOpenFilter(true)
   }
-  const handleClose = value => {
-    setOpen(false)
+  const handleCloseFilter = value => {
+    setOpenFilter(false)
   }
 
   return (
@@ -94,13 +94,13 @@ export default function FooterDiscover () {
             <StyledButton>Segments</StyledButton>
           </Box>
           <Box>
-            <StyledButton onClick={handleClickOpen}>Filters</StyledButton>
+            <StyledButton onClick={handleClickOpenFilter}>Filters</StyledButton>
             <StyledButton>Reset</StyledButton>
             <StyledButton><Help fontSize="small" color="disabled" /></StyledButton>
           </Box>
         </Box>
       </Paper>
-      <Filter open={open} onClose={handleClose} />
+      <Filter open={open} onClose={handleCloseFilter} />
     </React.Fragment>
   )
 }

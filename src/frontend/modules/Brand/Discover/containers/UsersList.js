@@ -13,6 +13,7 @@ import {
   Link
 } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
+import { UserInfo } from './UserInfo'
 
 const useStyles = makeStyles(theme => ({
   tableWrapper: {
@@ -189,43 +190,56 @@ export default function UsersList () {
     setOrderBy(property);
   }
   // -- End sort
+
+  // User Info
+  const [openUser, setOpenUser] = React.useState(false)
+  function handleClickOpenUser() {
+    setOpenUser(true)
+  }
+  const handleCloseUser = value => {
+    setOpenUser(false)
+  }
+
   return (
-    <Paper className={classes.tableWrapper}>
-      <Table size="small">
-          <EnhancedTableHead
-            classes={classes}
-            order={order}
-            orderBy={orderBy}
-            onRequestSort={handleRequestSort}
-        />
-          <TableBody className={classes.tableBody}>
-            {stableSort(rows, getSorting(order, orderBy))
-              .map(row => {
-                  return (
-                      <TableRow
-                        tabIndex={-1}
-                        key={row.name}
-                      > 
-                        <StyledTableCell align="left" style={{width: 240}}>
-                          <Avatar alt="Remy Sharp" className={classes.avatar} />
-                          <Link>{row.name}</Link>
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          <Rating value={row.rating} readOnly size="small" />
-                        </StyledTableCell>
-                        <StyledTableCell align="left">{row.subscribers}</StyledTableCell>
-                        <StyledTableCell align="left">{row.estcost}</StyledTableCell>
-                        <StyledTableCell align="left">{row.followers}</StyledTableCell>
-                        <StyledTableCell align="left">{row.avgcost}</StyledTableCell>
-                        <StyledTableCell align="left">{row.avglikes}</StyledTableCell>
-                        <StyledTableCell align="left">{row.avgcomm}</StyledTableCell>
-                        <StyledTableCell align="left">{row.facebook}</StyledTableCell>
-                        <StyledTableCell align="left">{row.twitter}</StyledTableCell>
-                      </TableRow>
-                )
-            })}
-          </TableBody>
-      </Table>
-    </Paper>
+    <React.Fragment>
+      <Paper className={classes.tableWrapper}>
+        <Table size="small">
+            <EnhancedTableHead
+              classes={classes}
+              order={order}
+              orderBy={orderBy}
+              onRequestSort={handleRequestSort}
+          />
+            <TableBody className={classes.tableBody}>
+              {stableSort(rows, getSorting(order, orderBy))
+                .map(row => {
+                    return (
+                        <TableRow
+                          tabIndex={-1}
+                          key={row.name}
+                        > 
+                          <StyledTableCell align="left" style={{width: 240}}>
+                            <Avatar alt="Remy Sharp" className={classes.avatar} />
+                            <Link onClick={handleClickOpenUser}>{row.name}</Link>
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            <Rating value={row.rating} readOnly size="small" />
+                          </StyledTableCell>
+                          <StyledTableCell align="left">{row.subscribers}</StyledTableCell>
+                          <StyledTableCell align="left">{row.estcost}</StyledTableCell>
+                          <StyledTableCell align="left">{row.followers}</StyledTableCell>
+                          <StyledTableCell align="left">{row.avgcost}</StyledTableCell>
+                          <StyledTableCell align="left">{row.avglikes}</StyledTableCell>
+                          <StyledTableCell align="left">{row.avgcomm}</StyledTableCell>
+                          <StyledTableCell align="left">{row.facebook}</StyledTableCell>
+                          <StyledTableCell align="left">{row.twitter}</StyledTableCell>
+                        </TableRow>
+                  )
+              })}
+            </TableBody>
+        </Table>
+      </Paper>
+      <UserInfo open={openUser} onClose={handleCloseUser} />
+    </React.Fragment>
   )
 }
