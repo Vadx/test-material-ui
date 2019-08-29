@@ -5,7 +5,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Button, Box, Tooltip, Typography, MenuItem, Menu, AppBar } from '@material-ui/core'
 import Dehaze from '@material-ui/icons/Dehaze'
 import {TopStatusBar} from '../modules/Brand/CampaignTabs/containers/TopStatusBar'
-import {TopNav} from '../modules/Brand/CampaignPreview/containers/TopNav'
+import {TopNav} from '../common/CampaignPreview/containers/TopNav'
 
 const ButtonMenu = withStyles(theme => ({
   root: {

@@ -43,6 +43,9 @@ const useStyles = makeStyles(theme => ({
   tableBody: {
     height: 'calc(100% - 58px)',
     overflowY: 'auto'
+  },
+  userCol: {
+    padding: 0
   }
 }))
 
@@ -170,6 +173,14 @@ function EnhancedTableHead(props) {
   )
 }
 
+// function showUser(){
+//   return (
+//     <TableRow>
+//       <UserInfo />
+//     </TableRow>
+//   )
+// }
+
 EnhancedTableHead.propTypes = {
   classes: PropTypes.object.isRequired,
   onRequestSort: PropTypes.func.isRequired,
@@ -191,13 +202,12 @@ export default function UsersList () {
   }
   // -- End sort
 
-  // User Info
-  const [openUser, setOpenUser] = React.useState(false)
-  function handleClickOpenUser() {
-    setOpenUser(true)
-  }
-  const handleCloseUser = value => {
-    setOpenUser(false)
+  
+
+  // Show User Detail --------
+  const [showUser, setShowUser] = React.useState(false)
+  function handkeShowUser(){
+    setShowUser(!showUser)
   }
 
   return (
@@ -220,7 +230,8 @@ export default function UsersList () {
                         > 
                           <StyledTableCell align="left" style={{width: 240}}>
                             <Avatar alt="Remy Sharp" className={classes.avatar} />
-                            <Link onClick={handleClickOpenUser}>{row.name}</Link>
+                            {/* <Link onClick={handleClickOpenUser}>{row.name}</Link> */}
+                            <Link onClick={handkeShowUser}>{row.name}</Link>
                           </StyledTableCell>
                           <StyledTableCell align="left">
                             <Rating value={row.rating} readOnly size="small" />
@@ -236,10 +247,16 @@ export default function UsersList () {
                         </TableRow>
                   )
               })}
+              {showUser ? (
+                <TableRow>
+                  <StyledTableCell className={classes.userCol} colSpan="10">
+                    <UserInfo />
+                  </StyledTableCell>
+                </TableRow>
+              ) : null}
             </TableBody>
         </Table>
       </Paper>
-      <UserInfo open={openUser} onClose={handleCloseUser} />
     </React.Fragment>
   )
 }
