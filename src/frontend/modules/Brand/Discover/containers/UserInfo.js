@@ -22,6 +22,7 @@ import Instagram from '../../../../assets/instagram.svg'
 import InstagramInfo from './InstagramInfo'
 import AudienceInfo from './AudienceInfo'
 import ReviewsInfo from './ReviewsInfo'
+import {SendOffer} from '../../../../common/SendOffer'
 
 
 const useStyles = makeStyles(theme => ({
@@ -74,6 +75,15 @@ export function UserInfo (props) {
     setValue(newValue)
   }
 
+  // Dialog Settings
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
+
   return (
     <React.Fragment>
       <Box className={classes.root}>
@@ -108,7 +118,7 @@ export function UserInfo (props) {
             </Box>
             <Box>
               <Button variant="contained" color="primary" style={{marginRight: 20}}>View profile</Button>
-              <Button variant="contained" color="secondary">Send offer</Button>
+              <Button variant="contained" color="secondary" onClick={handleClickOpen}>Send offer</Button>
             </Box>
           </Grid>
           <Grid item xs={6}>
@@ -136,6 +146,7 @@ export function UserInfo (props) {
           </Grid>
         </Grid>
       </Box>
+      <SendOffer open={open} onClose={handleClose} />
     </React.Fragment>
   )
 }
