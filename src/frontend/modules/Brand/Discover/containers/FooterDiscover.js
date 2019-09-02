@@ -4,7 +4,12 @@ import {
   Button,
   Paper,
   Box,
-  InputBase
+  InputBase,
+  Popper,
+  Fade,
+  MenuList,
+  MenuItem,
+  Typography
 } from '@material-ui/core'
 import { Help, Search } from '@material-ui/icons'
 import { Filter } from './Filter'
@@ -53,6 +58,16 @@ const useStyles = makeStyles(theme => ({
     //   width: 200,
     // },
   },
+  count: {
+    background: '#ccc',
+    color: '#fff',
+    padding: '0px 6px',
+    borderRadius: '7px',
+    marginLeft: 20
+  },
+  iconHelp: {
+    marginLeft: 20
+  }
 }))
 
 const StyledButton = withStyles(theme => ({
@@ -78,6 +93,16 @@ export default function FooterDiscover () {
     setOpenFilter(false)
   }
 
+  //Popover
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClickSegment(event) {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  }
+
+  const openPopover = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined
+
   return (
     <React.Fragment>
       <Paper className={classes.wrapper}>
@@ -91,7 +116,19 @@ export default function FooterDiscover () {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Box>
-            <StyledButton>Segments</StyledButton>
+            <StyledButton aria-describedby={id} onClick={handleClickSegment}>Segments</StyledButton>
+            <Popper id={id} open={openPopover} anchorEl={anchorEl} transition>
+              {({ TransitionProps }) => (
+                <Fade {...TransitionProps} timeout={350}>
+                  <Paper>
+                    <MenuList>
+                      <MenuItem>How it works {'  '}<Help className={classes.iconHelp} fontSize="small" color="disabled" /></MenuItem>
+                      <MenuItem>Favorites <Typography className={classes.count} variant="caption">0</Typography></MenuItem>
+                    </MenuList>
+                  </Paper>
+                </Fade>
+              )}
+            </Popper>
           </Box>
           <Box>
             <StyledButton onClick={handleClickOpenFilter}>Filters</StyledButton>

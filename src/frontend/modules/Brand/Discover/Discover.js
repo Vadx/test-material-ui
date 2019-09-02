@@ -2,7 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {Box} from '@material-ui/core'
 import UsersList from './containers/UsersList'
-import FooterDiscover from './containers/FooterDiscover';
+import FooterDiscover from './containers/FooterDiscover'
+// import FooterSelectedUsers from './containers/FooterSelectedUsers'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,6 +17,7 @@ export function Discover () {
     <Box className={classes.root}>
       <UsersList/>
       <FooterDiscover/>
+      {/* <FooterSelectedUsers /> */}
     </Box>
   )
 }
