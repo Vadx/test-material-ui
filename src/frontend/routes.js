@@ -11,6 +11,7 @@ import { CampaignsList } from './modules/Brand/CampaignsList'
 import { CampaignPreview } from './common/CampaignPreview'
 import { CreateCampaign } from './modules/Brand/CreateCampaign'
 import { TermsBrand } from './common/TermsBrand'
+import { ProfileInfluencer as Creators } from './modules/ProfileInfluencer'
 
 // Influencer
 import { AccountSettings as AccountInfluencerSettings  } from './modules/Influencer/AccountSettings'
@@ -96,6 +97,11 @@ export const routes = [
   {
     path: "/brand/create/",
     component: CreateCampaign
+  },
+  {
+    path: '/brand/creators/',
+    component: Creators
+
   },
   {
     path: "/creator/account-settings",

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Grid,
@@ -69,6 +70,7 @@ TabContainer.propTypes = {
 
 export function UserInfo (props) {
   const classes = useStyles()
+  const AdapterButton = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
 
   const [value, setValue] = React.useState(0)
   function handleChange(event, newValue) {
@@ -117,7 +119,7 @@ export function UserInfo (props) {
               </Button>
             </Box>
             <Box>
-              <Button variant="contained" color="primary" style={{marginRight: 20}}>View profile</Button>
+              <Button component={AdapterButton} to="/brand/creators" variant="contained" color="primary" style={{marginRight: 20}}>View profile</Button>
               <Button variant="contained" color="secondary" onClick={handleClickOpen}>Send offer</Button>
             </Box>
           </Grid>
