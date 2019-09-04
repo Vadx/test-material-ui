@@ -1,44 +1,48 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import {Tabs, Tab, Box, Grid} from '@material-ui/core'
+import {Tabs, Tab, Box, Grid, Paper} from '@material-ui/core'
 
 import { YouTubeTab } from './containers/YouTubeTab'
 import { InstagramTab } from './containers/InstagramTab'
 import { SponsoredPostsTab } from './containers/SponsoredPostsTab'
 import { AdvancedTab } from './containers/AdvancedTab'
 import { AdminTab } from './containers/AdminTab'
-import { RightBar } from './containers/RightBar'
+import { RightBar } from './containers/RightBar/'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: '#fff',
-    marginTop: '-41px'
+    marginTop: '-20px'
   },
   wrapTabs: {
-    marginBottom: '25px',
-    background: '#f4f4f4',
-    borderBottom: '1px solid #eee'
-  },
-  wrapTabsInner: {
     maxWidth: '1170px',
     position: 'relative',
-    margin: 'auto'
+    margin: '0 auto 20px'
   },
   tabItem: {
     fontSize: '13px',
     textTransform: 'none',
     position: 'relative',
-    paddingLeft: '15',
-    paddingRight: '15',
     minWidth: '120px'
   },
   tabs: {
     position: 'relative',
   },
+  line: {
+    background: '#ccc',
+    height: '2px',
+    width: '100%',
+    position: 'absolute',
+    bottom: '0px',
+    zIndex: '-1',
+    left: '0'
+  },
   innerWrap: {
     maxWidth: '1170px',
     margin: 'auto'
+  },
+  rightBar: {
+    padding: theme.spacing(2)
   }
 }))
 
@@ -65,26 +69,29 @@ export function ProfileInfluencer () {
   return (
     <Box className={classes.root}>
       <Box className={classes.wrapTabs} component="div">
-        <Box className={classes.wrapTabsInner} component="div">
-          <Tabs className={classes.tabs} value={value} indicatorColor="primary" textColor="primary" onChange={handleChange}>
-            <Tab className={classes.tabItem} label="YouTube" />
-            <Tab className={classes.tabItem} label="Instagram" />
-            <Tab className={classes.tabItem} label="Sponsored Posts" />
-            <Tab className={classes.tabItem} label="Advanced" />
-            <Tab className={classes.tabItem} label="Admin" />
-          </Tabs>
-        </Box>
+        <Tabs className={classes.tabs} value={value} indicatorColor="secondary" textColor="secondary" onChange={handleChange}>
+          <Tab className={classes.tabItem} label="YouTube" />
+          <Tab className={classes.tabItem} label="Instagram" />
+          <Tab className={classes.tabItem} label="Sponsored Posts" />
+          <Tab className={classes.tabItem} label="Advanced" />
+          <Tab className={classes.tabItem} label="Admin" />
+        </Tabs>
+        <Box className={classes.line}></Box>
       </Box>
-      <Grid container spacing={2} className={classes.innerWrap}>
+      <Grid container spacing={3} className={classes.innerWrap}>
           <Grid item xs={8}>
-            {value === 0 && <TabContainer><YouTubeTab /></TabContainer>}
-            {value === 1 && <TabContainer><InstagramTab /></TabContainer>}
-            {value === 2 && <TabContainer><SponsoredPostsTab /></TabContainer>}
-            {value === 3 && <TabContainer><AdvancedTab /></TabContainer>}
-            {value === 4 && <TabContainer><AdminTab /></TabContainer>}
+            <Paper>
+              {value === 0 && <TabContainer><YouTubeTab /></TabContainer>}
+              {value === 1 && <TabContainer><InstagramTab /></TabContainer>}
+              {value === 2 && <TabContainer><SponsoredPostsTab /></TabContainer>}
+              {value === 3 && <TabContainer><AdvancedTab /></TabContainer>}
+              {value === 4 && <TabContainer><AdminTab /></TabContainer>}
+            </Paper>
           </Grid>
           <Grid item xs={4}>
-            <RightBar />
+            <Paper className={classes.rightBar}>
+              <RightBar />
+            </Paper>
           </Grid>
       </Grid>
     </Box>

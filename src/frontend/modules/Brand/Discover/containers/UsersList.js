@@ -230,7 +230,6 @@ export default function UsersList () {
                         > 
                           <StyledTableCell align="left" style={{width: 240}}>
                             <Avatar alt="Remy Sharp" className={classes.avatar} />
-                            {/* <Link onClick={handleClickOpenUser}>{row.name}</Link> */}
                             <Link onClick={handkeShowUser}>{row.name}</Link>
                           </StyledTableCell>
                           <StyledTableCell align="left">
