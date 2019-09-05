@@ -114,7 +114,7 @@ export function UserInfo (props) {
               </Button>
 
               <Button size="small" className={classes.margin}>
-                <img className={classes.extendedIcon} src={Instagram} alt="FInstagram" />
+                <img className={classes.extendedIcon} src={Instagram} alt="Instagram" />
                 Instagram
               </Button>
             </Box>

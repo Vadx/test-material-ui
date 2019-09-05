@@ -18,8 +18,8 @@ import { AccountSettings as AccountInfluencerSettings  } from './modules/Influen
 import { Calendar } from './modules/Influencer/Calendar'
 import { Campaigns } from './modules/Influencer/Campaigns'
 import { Marketplace } from './modules/Influencer/Marketplace'
-import { Profile } from './modules/Influencer/Profile'
 import { TermsInfluencer } from './common/TermsInfluencer'
+import { ProfileInfluencer as Profile } from './modules/ProfileInfluencer'
 
 //Auth
 import { Login } from './modules/Auth/Login'

@@ -14,8 +14,7 @@ export function RightBar () {
   return (
     <React.Fragment>
       <MainInfo />
-      <Route exact path={['/creator']} component={Notification} />
-      <Notification />
+      <Route path={['/creator']} component={Notification} />
       <AboutMe />
       <Tags /> 
       <AudienceStats />

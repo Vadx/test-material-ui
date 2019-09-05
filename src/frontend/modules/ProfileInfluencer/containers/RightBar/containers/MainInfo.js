@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 export function MainInfo () {
   const classes = useStyles()
   return (
-    <Grid container spacing="1" className={classes.root}>
+    <Grid container spacing={1} className={classes.root}>
       <Grid item><Avatar alt="User Name" className={classes.avatar} /></Grid>
       <Grid item>
         <Typography color="textSecondary" variant="h4" gutterBottom>User Name</Typography>
