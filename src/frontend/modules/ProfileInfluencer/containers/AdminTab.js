@@ -12,7 +12,8 @@ import {
   InputLabel,
   Select,
   OutlinedInput,
-  MenuItem
+  MenuItem,
+  Box
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +34,7 @@ export function AdminTab () {
   }, [])
 
   return (
-    <React.Fragment>
+    <Box py={3}>
       <Grid container spacing={3}>
         <Grid item xs={12} className={classes.border}>
           <List>
@@ -100,6 +101,6 @@ export function AdminTab () {
           <Button variant="contained" color="primary">Update</Button>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Box>
   )
 }

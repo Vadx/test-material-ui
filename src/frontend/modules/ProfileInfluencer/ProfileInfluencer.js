@@ -12,6 +12,7 @@ import { SponsoredPostsTab } from './containers/SponsoredPostsTab'
 import { AdvancedTab } from './containers/AdvancedTab'
 import { AdminTab } from './containers/AdminTab'
 import { RightBar } from './containers/RightBar'
+import { EditProfile } from './containers/EditProfile'
 import {SendOffer} from '../../common/SendOffer'
 
 const useStyles = makeStyles(theme => ({
@@ -59,11 +60,21 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function Edit() {
+  // Dialog Settings
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
+
   return (
     <Box style={{padding: '0 20px'}}>
-      <Fab size="small" color="primary" aria-label="edit">
+      <Fab onClick={handleClickOpen} size="small" color="primary" aria-label="edit">
         <EditIcon size="small" />
       </Fab>
+      <EditProfile open={open} onClose={handleClose} />
     </Box>
   )
 }

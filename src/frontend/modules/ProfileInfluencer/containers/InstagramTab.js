@@ -74,7 +74,7 @@ export function InstagramTab() {
               <Box width={210} mb={3}>
                 <img style={{ width: 210, height: 201 }} alt={item.title} src={item.src} />
                 <Box>
-                  <img className={classes.extendedIcon} src={Instagram} alt="FInstagram" />
+                  <img className={classes.extendedIcon} src={Instagram} alt="Instagram" />
                   <Typography variant="caption" color="textSecondary">{item.likes}</Typography>
                 </Box>
                 
