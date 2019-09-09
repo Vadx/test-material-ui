@@ -24,26 +24,32 @@ const data = [
   {
     src: 'https://picsum.photos/id/10/210/210',
     likes: '12K likes',
+    comments: '120 comments',
   },
   {
     src: 'https://picsum.photos/id/20/210/210',
     likes: '8K likes',
+    comments: '20 comments',
   },
   {
     src: 'https://picsum.photos/id/25/210/210',
     likes: '20K likes',
+    comments: '100 comments',
   },
   {
     src: 'https://picsum.photos/id/30/210/210',
     likes: '20K likes',
+    comments: '125 comments',
   },
   {
     src: 'https://picsum.photos/id/40/210/210',
     likes: '12K likes',
+    comments: '10 comments',
   },
   {
     src: 'https://picsum.photos/id/50/210/210',
     likes: '8K likes',
+    comments: '14 comments',
   },
 ]
 
@@ -75,9 +81,8 @@ export function InstagramTab() {
                 <img style={{ width: 210, height: 201 }} alt={item.title} src={item.src} />
                 <Box>
                   <img className={classes.extendedIcon} src={Instagram} alt="Instagram" />
-                  <Typography variant="caption" color="textSecondary">{item.likes}</Typography>
+                  <Typography variant="caption" color="textSecondary">{`${item.likes} • ${item.comments}`}</Typography>
                 </Box>
-                
               </Box>
           </Grid>
         ))}

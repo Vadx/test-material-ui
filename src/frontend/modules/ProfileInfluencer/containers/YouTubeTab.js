@@ -7,6 +7,7 @@ import {
   Fab
 } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
+import { YouTubePopup } from './Modals/YouTubePopup'
 
 const data = [
   {
@@ -77,23 +78,33 @@ function AddVideo() {
 }
 
 export function YouTubeTab() {
+  // Dialog Settings
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
+
   return (
     <Box py={3}>
       <Grid container justify="space-between" spacing={2}>
         {data.map((item, index) => (
           <Grid key={index} item>
-              <Box width={210} mb={3}>
-                <img style={{ width: 210, height: 118 }} alt={item.title} src={item.src} />
-                <Typography gutterBottom variant="body2">{item.title}</Typography>
-                <Typography variant="caption" color="textSecondary">
-                  {`${item.likes} • ${item.views}`}
-                </Typography>
-                <Typography gutterBottom variant="caption" color="textSecondary" component="div">{item.ctr}</Typography>
+              <Box width={210} mb={3} onClick={handleClickOpen} style={{cursor: 'pointer'}}>
+                  <img style={{ width: 210, height: 118 }} alt={item.title} src={item.src} />
+                  <Typography gutterBottom variant="body2">{item.title}</Typography>
+                  <Typography variant="caption" color="textSecondary">
+                    {`${item.likes} • ${item.views}`}
+                  </Typography>
+                  <Typography gutterBottom variant="caption" color="textSecondary" component="div">{item.ctr}</Typography>
               </Box>
           </Grid>
         ))}
       </Grid>
       <Route path={['/creator']} component={AddVideo} />
+      <YouTubePopup open={open} onClose={handleClose} />
     </Box>
   )
 }
