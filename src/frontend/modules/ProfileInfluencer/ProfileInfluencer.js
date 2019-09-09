@@ -12,7 +12,7 @@ import { SponsoredPostsTab } from './containers/SponsoredPostsTab'
 import { AdvancedTab } from './containers/AdvancedTab'
 import { AdminTab } from './containers/AdminTab'
 import { RightBar } from './containers/RightBar'
-import { EditProfile } from './containers/Modals/EditProfile'
+import { EditProfile } from './containers/Dialogs/EditProfile'
 import {SendOffer} from '../../common/SendOffer'
 
 const useStyles = makeStyles(theme => ({

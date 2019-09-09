@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
 import Instagram from '../../../assets/instagram.svg'
+import { InstagramPopup } from './Dialogs/InstagramPopup'
 
 const useStyles = makeStyles(theme => ({
   extendedIcon: {
@@ -72,12 +73,22 @@ function AddVideo() {
 
 export function InstagramTab() {
   const classes = useStyles()
+
+  // Dialog Settings
+  const [open, setOpen] = React.useState(false);
+  function handleClickOpen() {
+    setOpen(true)
+  }
+  const handleClose = value => {
+    setOpen(false)
+  }
+
   return (
     <Box py={3}>
       <Grid container justify="space-between" spacing={2}>
         {data.map((item, index) => (
           <Grid key={index} item>
-              <Box width={210} mb={3}>
+              <Box width={210} mb={3} onClick={handleClickOpen} style={{cursor: 'pointer'}}>
                 <img style={{ width: 210, height: 201 }} alt={item.title} src={item.src} />
                 <Box>
                   <img className={classes.extendedIcon} src={Instagram} alt="Instagram" />
@@ -88,6 +99,7 @@ export function InstagramTab() {
         ))}
       </Grid>
       <Route path={['/creator']} component={AddVideo} />
+      <InstagramPopup open={open} onClose={handleClose} />
     </Box>
   )
 }

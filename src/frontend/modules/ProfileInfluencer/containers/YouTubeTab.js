@@ -7,7 +7,7 @@ import {
   Fab
 } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
-import { YouTubePopup } from './Modals/YouTubePopup'
+import { YouTubePopup } from './Dialogs/YouTubePopup'
 
 const data = [
   {
